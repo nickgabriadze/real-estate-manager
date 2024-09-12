@@ -1,6 +1,15 @@
 .applicationWrapper{
 
     & header{
-        margin: 50px 150px;
+        width: 80%;
+        margin: auto;
+        padding-top: 30px;
+        padding-bottom: 30px;;
+    }
+
+    & hr{
+        background-color: var(--border-color);
+        height: 1px;
+        border: none;
     }
 }
