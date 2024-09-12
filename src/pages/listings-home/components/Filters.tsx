@@ -26,7 +26,7 @@ export default function Filters() {
 
             <div className={filterStyles['create']}>
                 <Link to={'/add-listing'}><img src={AddIconWhiteSVG} width={12} alt={'Add icon'}/><h4>ლისტინგის დამატება</h4></Link>
-                <button><img src={AddIconOrangeSVG} width={12} alt={'Add icon'}/><h4>აგენტის დამატება</h4></button>
+                <Link to={'/add-agent'}><img src={AddIconOrangeSVG} width={12} alt={'Add icon'}/><h4>აგენტის დამატება</h4></Link>
 
             </div>
         </div>
