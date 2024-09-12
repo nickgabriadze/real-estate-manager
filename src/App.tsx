@@ -6,14 +6,14 @@ import Listings from "./pages/listings-home/Listings.tsx";
 export default function App(){
 
 
-    return <section className={appStyles['application-wrapper']}>
+    return <section className={appStyles['applicationWrapper']}>
 
             <header>
                 <div><img src={RedBerrySVG} width={150} height={24} alt={'RedBerry icon'} /></div>
             </header>
 
         <Routes>
-            <Route path={'/listings'} element={<Listings />}/>
+            <Route index element={<Listings />}/>
         </Routes>
 
     </section>
