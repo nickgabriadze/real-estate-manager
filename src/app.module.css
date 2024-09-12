@@ -1,6 +1,6 @@
-.application-wrapper{
+.applicationWrapper{
 
     & header{
-        margin: 50px 100px;
+        margin: 50px 150px;
     }
 }
