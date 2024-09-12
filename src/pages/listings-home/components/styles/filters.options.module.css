@@ -1,14 +1,18 @@
+& .filterOptionsButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px;
+}
+
+
 .regionsWrapper{
     display: flex;
     flex-direction: column;
     align-items: start;
     position: relative;
-    & button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 6px;
-    }
+
 
     .regions {
         display: flex;
@@ -19,7 +23,7 @@
         padding: 20px;
         border: 1px solid var(--border-color);
         position: absolute;
-        top: 40px;
+        top: 50px;
 
         & .mappedRegions {
             display: grid;

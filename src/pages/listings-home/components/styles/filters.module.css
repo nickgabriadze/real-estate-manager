@@ -1,3 +1,38 @@
+.filterWrapper{
+    width: 80%;
+    margin: auto;
+}
+
+.filtersCreate{
+    display: flex;
+    justify-content: space-between;
+
+    & .create{
+        display: flex;
+        gap: 15px;
+        & a, button {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            padding: 10px 16px 10px 16px;
+            border-radius: 10px;
+
+        }
+        & a:nth-child(1){
+            background-color: var(--accent-color);
+            color: white;
+
+        }
+
+        & button:nth-child(2){
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+
+        }
+
+    }
+}
+
 .dropdownSelectButton {
     padding: 8px 14px 8px 14px;
     border-radius: 8px;
@@ -7,4 +42,13 @@
     position: relative;
     width: 77px;
     float: right;
+}
+
+.filterOptions{
+    display: flex;
+    gap: 15px;
+    border: 1px solid var(--border-color);
+    width: fit-content;
+    border-radius: 10px;
+
 }
