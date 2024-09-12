@@ -6,6 +6,7 @@ import React, {useState} from "react";
 import UpArrowSVG from '/src-icons/up-arrow.svg'
 import DownArrowSVG from '/src-icons/down-arrow.svg'
 import {useNavigate} from "react-router-dom";
+import useClickOutside from "../../../../hooks/useClickOutside.ts";
 
 export default function Region({visible}: {
     visible: {
@@ -20,6 +21,8 @@ export default function Region({visible}: {
     const searchParams = new URLSearchParams(location.search)
     const urlRegions = searchParams.get('regions')?.split(',').map(n => parseInt(n))
     const [selectedRegions, setSelectedRegions] = useState<number[]>(urlRegions == undefined ? [] : urlRegions)
+
+    const regionClickOutsideRef = useClickOutside(() => visible.makeVisible('none'))
 
     const handleRegion = (id: number) => {
 
@@ -36,7 +39,7 @@ export default function Region({visible}: {
     }
 
     return (
-        <div className={filterOptionsStyles['regionsWrapper']}>
+        <div className={filterOptionsStyles['regionsWrapper']} ref={regionClickOutsideRef}>
             <button
                 className={filterOptionsStyles['filterOptionsButton']}
                 onClick={() => visible.makeVisible(visible.status ? 'none' : 'region')}>

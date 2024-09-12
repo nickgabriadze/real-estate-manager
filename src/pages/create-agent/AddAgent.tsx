@@ -2,11 +2,17 @@ import addAgentStyles from './addagent.module.css'
 import UploadPicture from "../../global-components/UploadPicture.tsx";
 import Input from "../../global-components/Input.tsx";
 import addListingStyles from "../create-listing/addlisting.module.css";
+import useClickOutside from "../../hooks/useClickOutside.ts";
+import {useNavigate} from "react-router-dom";
 
 
 export default function AddAgent() {
-
-    return <section className={addAgentStyles['agentFormWrapper']}>
+    const navigate = useNavigate();
+    const handleClickOutside = () => {
+            navigate('/')
+    }
+    const agentFormClickOutsideRef = useClickOutside(handleClickOutside)
+    return <section className={addAgentStyles['agentFormWrapper']} ref={agentFormClickOutsideRef}>
             <h1>აგენტის დამატება</h1>
 
         <form>
