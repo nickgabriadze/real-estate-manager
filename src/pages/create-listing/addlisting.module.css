@@ -1,0 +1,104 @@
+.addListingWrapper {
+    display: flex;
+    width: 50%;
+    margin: auto auto;
+    gap: 70px;
+    padding: 30px;
+    flex-direction: column;
+
+
+    & h3 {
+        line-height: 20px;
+        font-size: 16px;
+    }
+
+    & h1 {
+        text-align: center;
+        font-size: 32px;
+        line-height: 38px;
+        color: var(--heading-color);
+    }
+
+    & .dealType, .location, .homeDetails, .agents {
+        display: flex;
+        flex-direction: column;
+
+        width: 100%;
+        gap: 20px;
+    }
+
+    & .dealType {
+
+
+        & .dealOptionWrapper {
+            display: flex;
+            gap: 50px;
+
+            color: var(--heading-color);
+
+            & .dealOption {
+                display: flex;
+                gap: 5px;
+            }
+        }
+    }
+
+    & .location {
+
+        width: 100%;
+
+        & .detailInputs, .detailsLocationSelect {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+    }
+
+    & .homeDetails {
+        gap: 30px;
+    }
+
+    & .homeDetailInputs {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 30px;
+        row-gap: 20px;
+    }
+
+    & .agents{
+        width: 50%;
+    }
+}
+
+.formButtons {
+    display: flex;
+    gap: 15px;
+    float: right;
+    width: 100%;
+
+    align-items: center;
+    justify-content: flex-end;
+    & button {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        padding: 10px 16px 10px 16px;
+        border-radius: 10px;
+        font-weight: bold;
+        width: fit-content;
+
+    }
+
+    & button:nth-child(2) {
+        background-color: var(--accent-color);
+        color: white;
+
+    }
+
+    & button:nth-child(1) {
+        border: 1px solid var(--accent-color);
+        color: var(--accent-color);
+
+    }
+}
