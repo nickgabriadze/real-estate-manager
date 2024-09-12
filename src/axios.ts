@@ -2,9 +2,11 @@ import axios from 'axios'
 
 
 const axiosInstance = axios.create({
-    baseURL: 'api.real-estate-manager.redberryinternship.ge/api',
+    baseURL: 'https://api.real-estate-manager.redberryinternship.ge/api',
+
     headers: {
-        Authorization: `Bearer ${import.meta.env.API_ACCESS_TOKEN}`
+        "Content-Type": 'application/json',
+        Authorization: `Bearer ${import.meta.env.VITE_API_ACCESS_TOKEN}`,
     }
 })
 
