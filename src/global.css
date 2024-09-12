@@ -1,7 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@100..900&display=swap');
 
+:root{
+    --border-color:#DBDBDB;
+    --accent-color:#F93B1D
+}
+
+
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+}
+
+h1, h2, h4, h5, h6, p, button{
+    font-family: 'Noto Sans Georgian', sans-serif;
+}
+
+button {
+    outline: transparent;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 300ms linear;
+}
+
+p {
+    font-size: 14px;
+}
+button:hover{
+    filter: brightness(95%);
+}
+
+input[type='checkbox']{
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+    accent-color: #45A849;
+    border: 1px solid var(--border-color);
 }
