@@ -1,0 +1,21 @@
+.textareaWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    width: 100%;
+
+    & textarea {
+        resize: none;
+        width: 100%;
+        border: 1px solid var(--darker-border-color);
+        height: 135px;
+        border-radius: 10px;
+    }
+
+    & div {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+    }
+}

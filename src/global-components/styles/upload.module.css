@@ -1,0 +1,20 @@
+.uploadWrapper {
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+    width: 100%;
+
+    & .uploadContainer {
+        width: 100%;
+        border: dashed 2px var(--darker-border-color);
+        border-radius: 10px;
+        height: 135px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    & input[type='file'] {
+        display: none;
+    }
+}

@@ -1,0 +1,22 @@
+.selectWrapper{
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+    width: 100%;
+
+
+
+    & select {
+        padding: 10px;
+        border: 1px solid var(--darker-border-color);
+        border-radius: 6px;
+        width: 100%;
+
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background: transparent url("/public/src-icons/down-arrow.svg") no-repeat;
+        background-position-x: 99%;
+        background-position-y: 50%;
+
+    }
+}
