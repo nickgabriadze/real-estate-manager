@@ -9,7 +9,7 @@ import {useNavigate} from "react-router-dom";
 export default function AddAgent() {
     const navigate = useNavigate();
     const handleClickOutside = () => {
-            navigate('/')
+            navigate(-1)
     }
     const agentFormClickOutsideRef = useClickOutside(handleClickOutside)
     return <section className={addAgentStyles['agentFormWrapper']} ref={agentFormClickOutsideRef}>
