@@ -1,0 +1,52 @@
+.agentFormWrapper{
+    position: absolute;
+    width: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 80px 100px;
+    justify-content: space-between;
+
+    border-radius: 10px;
+    background-color: white;
+    z-index: 9999;
+
+    box-shadow: 5px 5px 4px 0 #00000014;
+
+    & h1 {
+        text-align: center;
+    }
+
+    & form {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        & .inputInformation {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 35px;
+            row-gap: 25px;
+        }
+    }
+}
+
+.outline{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    backdrop-filter: blur(2px) brightness(70%);
+    height: 100vh;
+    z-index: 999;
+}
+
+@media only screen and (max-height: 750px){
+    .agentFormWrapper{
+        height: 90%;
+       overflow-y: scroll;
+    }
+}
