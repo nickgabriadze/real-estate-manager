@@ -1,0 +1,10 @@
+.dropdownSelectButton {
+    padding: 8px 14px 8px 14px;
+    border-radius: 8px;
+    background-color: var(--accent-color);
+    color: white;
+    font-weight: bold;
+    position: relative;
+    width: 77px;
+    float: right;
+}

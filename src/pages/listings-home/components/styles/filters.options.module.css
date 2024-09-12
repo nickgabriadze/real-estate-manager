@@ -1,0 +1,39 @@
+.regionsWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    position: relative;
+    & button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+    }
+
+    .regions {
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+        width: fit-content;
+        gap: 30px;
+        padding: 20px;
+        border: 1px solid var(--border-color);
+        position: absolute;
+        top: 40px;
+
+        & .mappedRegions {
+            display: grid;
+            grid-template-columns: repeat(3, 200px);
+            gap: 10px;
+            & .eachRegion {
+                display: flex;
+                gap: 5px;
+                align-items: center;
+            }
+
+            & div /* button wrapper to let it float on the right side of the parent element*/{
+                width: 100%;
+            }
+        }
+    }
+}
