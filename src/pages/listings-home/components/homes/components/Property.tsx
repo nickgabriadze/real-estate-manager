@@ -1,18 +1,17 @@
 import {Listing} from "../../../../../types/listings.ts";
-import homeListingStyles from '../../styles/homes.listing.module.css';
+import homeListingStyles from '../../styles/homes.property.module.css';
 import LocationSVG from '/src-icons/listing/location.svg'
 import BedroomSVG from '/src-icons/listing/bedroom.svg'
 import AreaSVG from '/src-icons/listing/area.svg'
 import ZipCodeSVG from '/src-icons/listing/zipcode.svg'
+import {Link} from "react-router-dom";
 
-export default function HomeListing({home}:{home: Listing}){
+export default function Property({home}:{home: Listing}){
 
-
-    return <div className={homeListingStyles['homeListingWrapper']}>
+    return <Link to={`/listings/${home.id}`} className={homeListingStyles['homeListingWrapper']}>
         <div className={homeListingStyles['homePicture']}>
             <p>{home.is_rental === 1 ? "ქირავდება" : "იყიდება"}</p>
             <img src={home.image} width={384} height={300} alt={"Home interior picture"}/>
-
         </div>
 
         <div className={homeListingStyles['homeDetails']}>
@@ -44,6 +43,6 @@ export default function HomeListing({home}:{home: Listing}){
 
         </div>
 
-    </div>
+    </Link>
 
 }
