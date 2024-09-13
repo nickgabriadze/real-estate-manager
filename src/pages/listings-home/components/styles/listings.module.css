@@ -1,0 +1,7 @@
+.listingsPageWrapper{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
