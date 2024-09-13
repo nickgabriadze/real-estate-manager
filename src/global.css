@@ -15,8 +15,12 @@
     margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6, p, button, label, input, option, select {
+h1, h2, h3, h4, h5, h6, p, button, label, input, option, select, span {
     font-family: 'Noto Sans Georgian', sans-serif;
+}
+
+button {
+    transition: all 300ms linear;
 }
 
 button, a {
@@ -24,7 +28,6 @@ button, a {
     border: none;
     background-color: transparent;
     cursor: pointer;
-    transition: all 300ms linear;
 }
 
 a {
@@ -35,7 +38,7 @@ p {
     font-size: 14px;
 }
 
-& label, h5{
+& label, h5 {
     font-size: 14px;
     line-height: 17px;
     color: var(--heading-color);
@@ -65,4 +68,34 @@ input[type='radio'] {
     width: 17px;
     height: 17px;
     accent-color: black;
+}
+
+.stop-scroll {
+    height: 100%;
+    overflow-y: hidden;
+}
+
+.not-found {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+    color: #f83c1c;
+    width: 100%;
+}
+
+.not-found > div:nth-child(1){
+    font-size: 2rem;
+    text-align: center;
+}
+
+.not-found > div:nth-child(2) > a {
+    text-decoration: underline;
+    color: var(--heading-color);
 }
