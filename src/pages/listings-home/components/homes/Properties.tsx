@@ -1,10 +1,10 @@
 import {useQuery} from "@tanstack/react-query";
 import getListings from "../../../../apis/getListings.ts";
-import HomeListing from "./components/Listing.tsx";
+import Property from "./components/Property.tsx";
 import homeStyles from '../styles/homes.module.css';
 
 
-export default function Homes() {
+export default function Properties() {
     const homes = useQuery({
         queryKey: ['homeListings'],
         queryFn: getListings
@@ -13,7 +13,7 @@ export default function Homes() {
     const listings = homes.data?.data ? homes.data?.data : [];
 
     return <section className={homeStyles['listingsWrapper']}>{listings?.map(
-        eachListing => <div key={eachListing.id}><HomeListing home={eachListing}/></div>)
+        eachListing => <div key={eachListing.id}><Property home={eachListing}/></div>)
     }</section>
 
 }
