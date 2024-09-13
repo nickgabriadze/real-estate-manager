@@ -70,10 +70,6 @@ input[type='radio'] {
     accent-color: black;
 }
 
-.stop-scroll {
-    height: 100%;
-    overflow-y: hidden;
-}
 
 .not-found {
     position: absolute;
