@@ -1,13 +1,16 @@
 import Filters from "./components/Filters.tsx";
 import {Outlet} from "react-router-dom";
-import Homes from "./components/homes/Homes.tsx";
+import Properties from "./components/homes/Properties.tsx";
+import listingStyles from './components/styles/listings.module.css';
 
 export default function Listings() {
 
     return <>
+        <Outlet/>
 
-            <Outlet/>
+        <div className={listingStyles['listingsPageWrapper']}>
             <Filters/>
-            <Homes />
+            <Properties/>
+        </div>
     </>
 }
