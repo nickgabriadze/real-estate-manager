@@ -8,7 +8,7 @@ export type Listing = {
     price: number,
     area: number,
     bedrooms: number,
-    is_rental: number,
+    is_rental: 0 | 1,
     image: string,
     city_id: number,
     city: City & { region: Region }
