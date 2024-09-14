@@ -5,7 +5,8 @@ interface FilterState {
     regionFilters: Region[],
     priceFilter: [number, number] | [],
     roomFilters: number[],
-    areaFilter: [number, number] | []
+    areaFilter: [number, number] | [],
+    totalAvailableRooms: number[]
 }
 
 type MinMax = {
@@ -20,6 +21,7 @@ const initialState: FilterState = {
     priceFilter: [],
     roomFilters: [],
     areaFilter: [],
+    totalAvailableRooms: []
 }
 
 
@@ -55,17 +57,24 @@ const filterSlice = createSlice({
             }
         },
 
-        addRoomFilters: (state, action: { payload: number }) => {
+        setTotalAvailableRooms: (state, action: {payload: number[]}) => {
             return {
                 ...state,
-                roomFilters: [...state.roomFilters, action.payload]
+                totalAvailableRooms: action.payload
             }
         },
 
-        removeRoomFilters: (state, action: { payload: number }) => {
+        addRoomFilters: (state, action: { payload: number[] }) => {
             return {
                 ...state,
-                roomFilters: [...state.roomFilters.filter(n => n !== action.payload)]
+                roomFilters: [...action.payload]
+            }
+        },
+
+        removeRoomFilters: (state, action: { payload: number[] }) => {
+            return {
+                ...state,
+                roomFilters: [...action.payload]
             }
         },
 
@@ -82,8 +91,9 @@ const filterSlice = createSlice({
             }
         },
 
-        resetAll: (_, __) => {
+        resetAll: (state, __) => {
             return {
+                ...state,
                 regionFilters: [],
                 areaFilter: [],
                 roomFilters: [],
@@ -95,5 +105,5 @@ const filterSlice = createSlice({
 
 })
 
-export const {addRegionFilters, removeRegionFilters, resetAll} = filterSlice.actions
+export const {addRegionFilters, removeRegionFilters, removeRoomFilters, resetAll, addRoomFilters, setTotalAvailableRooms} = filterSlice.actions
 export default filterSlice.reducer
