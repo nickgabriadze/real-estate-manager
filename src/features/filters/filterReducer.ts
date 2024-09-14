@@ -1,7 +1,8 @@
 import {createSlice } from "@reduxjs/toolkit";
+import {Region} from "../../types/regions.ts";
 
 interface FilterState {
-    regionFilters: number[],
+    regionFilters: Region[],
     priceFilter: [number, number] | [],
     roomFilters: number[],
     areaFilter: [number, number] | []
@@ -26,17 +27,17 @@ const filterSlice = createSlice({
     name: "filters",
     initialState,
     reducers: {
-        addRegionFilters: (state, action: { payload: number }) => {
+        addRegionFilters: (state, action: { payload: Region[] }) => {
             return {
                 ...state,
-                regionFilters: [...state.regionFilters, action.payload]
+                regionFilters: [...action.payload]
             }
         },
 
-        removeRegionFilters: (state, action: { payload: number }) => {
+        removeRegionFilters: (state, action: { payload: Region[] }) => {
             return {
                 ...state,
-                regionFilters: [...state.regionFilters.filter(r_id => r_id !== action.payload)]
+                regionFilters: [...action.payload]
             }
         },
 
@@ -79,10 +80,20 @@ const filterSlice = createSlice({
                 ...state,
                 areaFilter: []
             }
+        },
+
+        resetAll: (_, __) => {
+            return {
+                regionFilters: [],
+                areaFilter: [],
+                roomFilters: [],
+                priceFilter: []
+
+            }
         }
     }
 
 })
 
-export const {addRegionFilters, removeRegionFilters} = filterSlice.actions
+export const {addRegionFilters, removeRegionFilters, resetAll} = filterSlice.actions
 export default filterSlice.reducer
