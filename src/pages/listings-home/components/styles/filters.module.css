@@ -1,5 +1,8 @@
 .filterWrapper{
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .filtersCreate{
@@ -49,5 +52,40 @@
     border: 1px solid var(--border-color);
     width: fit-content;
     border-radius: 10px;
+}
 
+.selectedFilters {
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+    flex-wrap: wrap;
+    & div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 6px 10px 6px 10px;
+        border: 1px solid #DBDBDB;
+        border-radius: 43px;
+
+        & img {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 15px;
+        }
+    }
+    & p{
+        font-size: 14px;
+        color: #021526CC;
+        font-weight: 600;
+
+    }
+    & button{
+        font-weight: 600;
+        margin-left: 5px;
+    }
+
+    & button:hover{
+        color: var(--accent-color);
+    }
 }

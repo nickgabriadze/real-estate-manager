@@ -1,42 +1,57 @@
-import {useQuery} from "@tanstack/react-query";
-import getRegions from "../../../../apis/getRegions.ts";
 import filterOptionsStyles from '../styles/filters.options.module.css'
 import filterStyles from '../styles/filters.module.css'
-import React, {useState} from "react";
+import React, {useEffect} from "react";
 import UpArrowSVG from '/src-icons/up-arrow.svg'
 import DownArrowSVG from '/src-icons/down-arrow.svg'
 import {useNavigate} from "react-router-dom";
 import useClickOutside from "../../../../hooks/useClickOutside.ts";
+import {useAppDispatch, useAppSelector} from "../../../../hooks/redux.ts";
+import {addRegionFilters, removeRegionFilters} from "../../../../features/filters/filterReducer.ts";
+import {Region, Regions} from "../../../../types/regions.ts";
 
-export default function Region({visible}: {
+
+export default function RegionFilter({visible, regionsData, isLoading}: {
+    isLoading: boolean,
+    regionsData: Regions
     visible: {
         status: boolean,
         makeVisible: React.Dispatch<React.SetStateAction<"region" | "pricing" | "area" | "rooms" | "none">>
     }
 }) {
-
-    const {data, isLoading} = useQuery({queryKey: ['regions'], queryFn: getRegions,})
-    const regions = data?.data
     const navigate = useNavigate()
     const searchParams = new URLSearchParams(location.search)
     const urlRegions = searchParams.get('regions')?.split(',').map(n => parseInt(n))
-    const [selectedRegions, setSelectedRegions] = useState<number[]>(urlRegions == undefined ? [] : urlRegions)
 
+    const regionDispatch = useAppDispatch()
     const regionClickOutsideRef = useClickOutside(() => visible.makeVisible('none'))
+    const filterRegionIDs = useAppSelector(s => s.filters.regionFilters)
 
-    const handleRegion = (id: number) => {
+    const handleRegion = (id: number, name: string) => {
+        const filteredRegionsMappedToID = filterRegionIDs.map(r => r.id)
+        if (filteredRegionsMappedToID.includes(id)) {
+            regionDispatch(removeRegionFilters([...filterRegionIDs.filter(r => r.id !== id)]))
 
-        const updatedRegions = selectedRegions.includes(id)
-            ? selectedRegions.filter(r_id => r_id !== id)  // Uncheck region
-            : [...selectedRegions, id];
-
-        setSelectedRegions(updatedRegions);
-        const searchParams = new URLSearchParams(location.search);
-
-        searchParams.set('regions', updatedRegions.join(','));
-
-        navigate(`${location.pathname}?${searchParams.toString()}`);
+        } else {
+            regionDispatch(addRegionFilters([...filterRegionIDs, {id, name}]))
+        }
     }
+    useEffect(() => {
+        if (urlRegions) {
+            regionDispatch(addRegionFilters([...regionsData.filter(r => urlRegions.includes(r.id))]))
+        }
+    }, [isLoading]);
+
+    useEffect(() => {
+        if (filterRegionIDs.length === 0) {
+            if (!isLoading) {
+                searchParams.delete('regions')
+                navigate(`${location.pathname}?`)
+            }
+        } else {
+            searchParams.set('regions', filterRegionIDs.map(r => r.id).join(','));
+            navigate(`${location.pathname}?${searchParams.toString()}`);
+        }
+    }, [isLoading, filterRegionIDs.length])
 
     return (
         <div className={filterOptionsStyles['regionsWrapper']} ref={regionClickOutsideRef}>
@@ -47,15 +62,15 @@ export default function Region({visible}: {
                 <img src={visible.status ? UpArrowSVG : DownArrowSVG} alt={'Arrow icon'} width={12}/>
             </button>
 
-            {visible.status && regions && !isLoading &&
+            {visible.status && regionsData && !isLoading &&
                 <div className={filterOptionsStyles['regions']}>
                     <h3>რეგიონის მიხედვით</h3>
-                    <div className={filterOptionsStyles['mappedRegions']}>{regions.map((region) => <div
+                    <div className={filterOptionsStyles['mappedRegions']}>{regionsData.map((region: Region) => <div
                         key={region.id}
                         className={filterOptionsStyles['eachRegion']}>
                         <input type={'checkbox'}
-                               checked={selectedRegions.includes(region.id)}
-                               onChange={() => handleRegion(region.id)}/>
+                               checked={filterRegionIDs.map(r => r.id).includes(region.id)}
+                               onChange={() => handleRegion(region.id, region.name)}/>
                         <p>{region.name}</p>
                     </div>)}
                     </div>
