@@ -34,14 +34,6 @@
     }
 }
 
-.outline{
-    position: fixed;
-    top: 0;
-    width: 100%;
-    backdrop-filter: blur(2px) brightness(70%);
-    height: 100vh;
-    z-index: 999;
-}
 
 @media only screen and (max-height: 750px){
     .agentFormWrapper{
