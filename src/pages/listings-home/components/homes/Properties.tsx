@@ -25,9 +25,9 @@ export default function Properties() {
     const filters = useAppSelector(s => s.filters)
     const filtersAvailable = filters.regionFilters.length + filters.areaFilter.length + filters.priceFilter.length + filters.roomFilters.length !== 0
 
-
-    return <section
-        className={homeStyles['listingsWrapper']}>{filtersAvailable ? listings?.filter((l) => regionFilters.includes(l.city.region_id) || roomFilters.includes(l.bedrooms) ).map(
+    const filtered = listings?.filter((l) => regionFilters.includes(l.city.region_id) || roomFilters.includes(l.bedrooms))
+    return !homes.isLoading && filtered.length === 0 && filtersAvailable ? <p style={{'color': '#021526CC', fontWeight: '600'}}>აღნიშნული მონაცემებით განცხადება არ იძებნება</p> : <section
+        className={homeStyles['listingsWrapper']}>{filtersAvailable ? filtered.map(
             eachListing => <div key={eachListing.id}><Property home={eachListing}/></div>) :
         listings.map(
             eachListing => <div key={eachListing.id}><Property home={eachListing}/></div>
