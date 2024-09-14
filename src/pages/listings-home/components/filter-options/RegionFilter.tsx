@@ -10,8 +10,9 @@ import {addRegionFilters, removeRegionFilters} from "../../../../features/filter
 import {Region, Regions} from "../../../../types/regions.ts";
 
 
-export default function RegionFilter({visible, regionsData, isLoading}: {
+export default function RegionFilter({visible, regionsData, isLoading, params}: {
     isLoading: boolean,
+    params: URLSearchParams
     regionsData: Regions
     visible: {
         status: boolean,
@@ -19,11 +20,10 @@ export default function RegionFilter({visible, regionsData, isLoading}: {
     }
 }) {
     const navigate = useNavigate()
-    const searchParams = new URLSearchParams(location.search)
-    const urlRegions = searchParams.get('regions')?.split(',').map(n => parseInt(n))
+    const urlRegions = params.get('regions')?.split(',').map(n => parseInt(n))
 
     const regionDispatch = useAppDispatch()
-    const regionClickOutsideRef = useClickOutside(() => visible.makeVisible('none'))
+    const regionClickOutsideRef = useClickOutside(() => visible.status && visible.makeVisible('none'))
     const filterRegionIDs = useAppSelector(s => s.filters.regionFilters)
 
     const handleRegion = (id: number, name: string) => {
@@ -44,19 +44,20 @@ export default function RegionFilter({visible, regionsData, isLoading}: {
     useEffect(() => {
         if (filterRegionIDs.length === 0) {
             if (!isLoading) {
-                searchParams.delete('regions')
-                navigate(`${location.pathname}?`)
+                params.delete('regions')
             }
         } else {
-            searchParams.set('regions', filterRegionIDs.map(r => r.id).join(','));
-            navigate(`${location.pathname}?${searchParams.toString()}`);
+            params.set('regions', filterRegionIDs.map(r => r.id).join(','));
         }
+        navigate(`${location.pathname}?${params.toString()}`);
+
     }, [isLoading, filterRegionIDs.length])
 
     return (
         <div className={filterOptionsStyles['regionsWrapper']} ref={regionClickOutsideRef}>
             <button
-                className={filterOptionsStyles['filterOptionsButton']}
+                style={visible.status ? {background: '#F3F3F3'}: {}}
+                className={`${filterOptionsStyles['filterOptionsButton']} ${filterStyles['filterOption']}`}
                 onClick={() => visible.makeVisible(visible.status ? 'none' : 'region')}>
                 <h3>რეგიონი</h3>
                 <img src={visible.status ? UpArrowSVG : DownArrowSVG} alt={'Arrow icon'} width={12}/>
