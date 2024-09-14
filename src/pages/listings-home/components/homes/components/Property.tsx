@@ -10,7 +10,7 @@ export default function Property({home}:{home: Listing}){
 
     return <Link to={`/listings/${home.id}`} className={homeListingStyles['homeListingWrapper']}>
         <div className={homeListingStyles['homePicture']}>
-            <p>{home.is_rental === 1 ? "ქირავდება" : "იყიდება"}</p>
+            <p className={'isRental'}>{home.is_rental === 1 ? "ქირავდება" : "იყიდება"}</p>
             <img src={home.image} width={384} height={300} alt={"Home interior picture"}/>
         </div>
 
