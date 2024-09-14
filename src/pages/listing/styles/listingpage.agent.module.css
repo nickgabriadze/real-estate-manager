@@ -1,0 +1,46 @@
+.agentCardWrapper {
+    border: 1px solid #DBDBDB;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    & .agentDetails {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        & img {
+            border-radius: 100px;
+            width: 70px;
+            height: 70px;
+        }
+
+        & h5 {
+            font-weight: 600;
+        }
+
+        & p {
+            font-weight: 500;
+            color: #808A93;
+        }
+    }
+
+    & .contactDetails {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        & div {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+
+            & p {
+                color: #808A93;
+            }
+        }
+    }
+}

@@ -1,0 +1,9 @@
+.listingPageWrapper{
+    width: 80%;
+    margin:auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+}

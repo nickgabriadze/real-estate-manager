@@ -1,0 +1,175 @@
+.propertyWrapper {
+    display: flex;
+    width: 100%;
+    gap: 30px;
+
+    & .imageWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap:10px;
+        width: 50%;
+
+        & .image {
+            position: relative;
+            width: 100%;
+
+            & img {
+                width: 100%;
+                aspect-ratio: 4 / 3;
+                border-radius: 14px 14px 0 0;
+                object-fit: cover;
+                height: 100%;
+            }
+
+        }
+
+        & .publishedDate {
+            font-size: 14px;
+            color: #808A93;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            width: 100%;
+            float: right;
+            justify-content: end;
+
+
+            & span {
+                letter-spacing: 1px;
+            }
+        }
+    }
+
+    & .detailsWrapper {
+        width: 40%;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 30px;
+        gap: 30px;
+        justify-content: space-between;
+
+        & .details {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 30px;
+            width: 100%;
+
+            & p {
+                font-weight: 400;
+                line-height: 19px;
+                color: #021526B2;
+
+            }
+
+            & .interior {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: start;
+                gap: 5px;
+
+
+                & div {
+                    display: flex;
+                    gap: 15px;
+                    align-items: center;
+
+                    & p {
+                        font-size: clamp(12px, 1vw, 16px);
+                        font-weight: 500;
+
+                    }
+                }
+
+                /* this is necessary for square meter to align perfectly with the area text*/
+
+                & div:nth-child(1) {
+                    margin-bottom: -5px;
+                }
+
+                & div:nth-child(2) {
+                    align-items: flex-end;
+
+                }
+            }
+
+            .description {
+                font-size: 12px;
+            }
+        }
+
+        & .agentSection {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 30px;
+
+
+            & .deleteListing {
+                border: 1px solid #676E76;
+                padding: 10px;
+                border-radius: 8px;
+                color: #676E76;
+                font-weight: 500;
+            }
+
+            & .deleteListing:hover {
+                color: var(--accent-color);
+                border: 1px solid var(--accent-color)
+            }
+        }
+    }
+}
+
+
+
+@media only screen and (max-width: 1300px){
+
+    .propertyWrapper{
+        gap: 50px;
+        & .detailsWrapper{
+            padding: 0;
+
+        }
+    }
+}
+@media only screen and (max-width: 1000px) {
+    .propertyWrapper {
+        flex-direction: column;
+
+        & .imageWrapper {
+            width: 100%;
+        }
+
+        & .detailsWrapper {
+            flex-direction: row;
+            width: 100%;
+            padding: 0;
+            flex-wrap: wrap;
+
+            & .interior {
+                flex-direction: row;
+                gap: 30px;
+                flex-wrap: wrap;
+                align-items: center;
+                text-align: center;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .propertyWrapper {
+        & .detailsWrapper {
+            & .interior {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    }
+}
