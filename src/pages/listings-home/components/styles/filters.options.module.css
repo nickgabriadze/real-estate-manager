@@ -1,9 +1,11 @@
-& .filterOptionsButton {
+
+.filterOptionsButton {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 6px;
     padding: 10px;
+
 }
 
 
@@ -14,24 +16,20 @@
     position: relative;
 
 
-    .regions {
+    & .regions {
         display: flex;
         flex-direction: column;
-        border-radius: 10px;
         width: fit-content;
         gap: 30px;
-        padding: 20px;
-        border: 1px solid var(--border-color);
-        position: absolute;
-        top: 50px;
-        background-color: white;
-        z-index: 99;
+
 
         & .mappedRegions {
             display: grid;
             grid-template-columns: repeat(3, 200px);
             gap: 10px;
-
+            & input {
+                cursor: pointer;
+            }
             & .eachRegion {
                 display: flex;
                 gap: 5px;
@@ -41,6 +39,48 @@
             & div /* button wrapper to let it float on the right side of the parent element */
             {
                 width: 100%;
+            }
+        }
+    }
+}
+.regions, .roomOptions{
+    border-radius: 10px;
+
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    position: absolute;
+    top: 60px;
+    background-color: white;
+    z-index: 99;
+}
+
+.roomsWrapper {
+    position: relative;
+
+
+    .roomOptions {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        & .rooms {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            & .room {
+                height: 40px;
+                width: 40px;
+                padding: 10px;
+                border-radius: 6px;
+                border: 1px solid #808A93;
+                text-align: center;
+                color: #02152666;
+            }
+            & .room:hover{
+                color: black;
+                border: 1px solid #34383b;
+
             }
         }
     }
