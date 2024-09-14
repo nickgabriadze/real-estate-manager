@@ -3,6 +3,8 @@ export type Agent = {
     name: string,
     surname: string,
     avatar: string
+    email: string,
+    phone: string
 }
 
 export type Agents = Agent[]
