@@ -95,3 +95,28 @@ input[type='radio'] {
     text-decoration: underline;
     color: var(--heading-color);
 }
+
+.isRental {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 2;
+    font-size: 12px;
+    line-height: 14px;
+    color: white;
+    background: #02152680;
+    padding: 6px;
+    border-radius: 15px;
+    width: 90px;
+    height: 26px;
+    text-align: center;
+}
+
+.outline{
+        position: fixed;
+        top: 0;
+        width: 100%;
+        backdrop-filter: blur(3px) brightness(70%);
+        height: 100vh;
+        z-index: 999;
+}
