@@ -6,6 +6,7 @@
 
     & h3 {
         font-size: 16px;
+        line-height: 19px;
     }
 }
 
@@ -23,6 +24,7 @@
             padding: 10px 16px 10px 16px;
             border-radius: 10px;
             height: 100%;
+
 
         }
         & a:nth-child(1){
