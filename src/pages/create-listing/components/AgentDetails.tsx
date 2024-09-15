@@ -1,6 +1,6 @@
 import addListingStyles from "../addlisting.module.css";
 import {useQuery} from "@tanstack/react-query";
-import getAgents from "../../../apis/getAgents.ts";
+import getAgents from "../../../apis/agent/getAgents.ts";
 import Select from "../../../global-components/Select.tsx";
 import {useState} from "react";
 

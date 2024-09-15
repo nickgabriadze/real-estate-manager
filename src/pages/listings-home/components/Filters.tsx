@@ -9,7 +9,7 @@ import {useState} from "react";
 import {Link, useLocation} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../../../hooks/redux.ts";
 import {useQuery} from "@tanstack/react-query";
-import getRegions from "../../../apis/getRegions.ts";
+import getRegions from "../../../apis/location/getRegions.ts";
 import RemoveSVG from '/src-icons/remove.svg'
 import {removeRegionFilters, removeRoomFilters, resetAll} from "../../../features/filters/filterReducer.ts";
 

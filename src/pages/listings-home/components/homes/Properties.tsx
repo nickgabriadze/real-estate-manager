@@ -1,5 +1,5 @@
 import {useQuery} from "@tanstack/react-query";
-import getListings from "../../../../apis/getListings.ts";
+import getListings from "../../../../apis/listing/getListings.ts";
 import Property from "./components/Property.tsx";
 import homeStyles from '../styles/homes.module.css';
 import {useAppDispatch, useAppSelector} from "../../../../hooks/redux.ts";

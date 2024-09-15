@@ -2,7 +2,7 @@ import {useNavigate, useParams} from "react-router-dom";
 import deleteModalStyles from '../styles/listingpage.delete.module.css'
 import RemoveSVG from '/src-icons/remove.svg'
 import useClickOutside from "../../../hooks/useClickOutside.ts";
-import deleteListing from "../../../apis/deleteListing.ts";
+import deleteListing from "../../../apis/listing/deleteListing.ts";
 import {useState} from "react";
 
 export default function DeleteListingModal() {
