@@ -1,6 +1,10 @@
 .homeListingWrapper{
     display: flex;
     flex-direction: column;
+    box-shadow: 5px 5px 12px 0 #02152614;
+    border: 1px solid #DBDBDB;
+    border-radius: 14px;
+
 
     & .homePicture{
         position: relative;
