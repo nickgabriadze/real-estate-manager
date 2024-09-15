@@ -2,7 +2,7 @@ import addListingStyles from '../addlisting.module.css'
 import Input from "../../../global-components/Input.tsx";
 import Textarea from "../../../global-components/Textarea.tsx";
 import UploadPicture from "../../../global-components/UploadPicture.tsx";
-import {setArea, setBedrooms, setDescription, setListingImage, setPrice} from "../../../features/forms/listingFormReducer..ts";
+import {setArea, setBedrooms, setDescription, setListingImage, setPrice} from "../../../features/forms/listingFormReducer.ts";
 import {useAppSelector} from "../../../hooks/redux.ts";
 
 

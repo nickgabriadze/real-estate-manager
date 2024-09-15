@@ -2,10 +2,13 @@ import addListingStyles from "../addlisting.module.css";
 import {useQuery} from "@tanstack/react-query";
 import getAgents from "../../../apis/agent/getAgents.ts";
 import Select from "../../../global-components/Select.tsx";
-import {useState} from "react";
+import {useAppDispatch, useAppSelector} from "../../../hooks/redux.ts";
+import {setAgentId} from "../../../features/forms/listingFormReducer.ts";
+import {useEffect} from "react";
 
 export default function AgentDetails() {
-    const {data} = useQuery({
+    const {agent_id} = useAppSelector(s => s.listingForm)
+    const {data, isLoading} = useQuery({
         queryKey: ['agents'],
         queryFn: getAgents
     })
@@ -15,11 +18,20 @@ export default function AgentDetails() {
             name: a.name.concat(` ${a.surname}`)
         }
     }) : []
-    const [_, setSelectedAgent] = useState<number>(-1)
+    const dispatch = useAppDispatch()
+    useEffect(() => {
+        if (!isLoading) {
+            dispatch(setAgentId(Number(agents[0].id)))
+        }
+    }, [isLoading]);
 
     return <div className={addListingStyles['agents']}>
         <h3>აგენტი</h3>
-        <Select data={agents} label={'აირჩიე'} selectOption={setSelectedAgent}/>
+        <Select
+            value={agent_id}
+            setValue={setAgentId}
+            loading={isLoading}
+            data={isLoading ? [{name: 'აგენტი', id: -1}] : agents} label={'აირჩიე'}/>
 
     </div>
 }

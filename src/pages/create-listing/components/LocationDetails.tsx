@@ -1,25 +1,30 @@
 import addListingStyles from "../addlisting.module.css";
 import Select from "../../../global-components/Select.tsx";
-import {useState} from "react";
+import {useEffect} from "react";
 import {useQuery} from "@tanstack/react-query";
 import getRegions from "../../../apis/location/getRegions.ts";
 import getCitiesByRegion from "../../../apis/location/getCitiesByRegion.ts";
 import Input from "../../../global-components/Input.tsx";
-import {useAppSelector} from "../../../hooks/redux.ts";
-import {setAddress, setZipCode} from "../../../features/forms/listingFormReducer..ts";
+import {useAppDispatch, useAppSelector} from "../../../hooks/redux.ts";
+import {setAddress, setCity, setRegion, setZipCode} from "../../../features/forms/listingFormReducer.ts";
 
 export default function LocationDetails() {
-    const {address, zip_code} = useAppSelector( s=> s.listingForm)
-    const [selectedRegionID, setSelectedRegionID] = useState<number>(1)
-    const [_, setSelectedCity] = useState<number>(1)
+    const {address, zip_code, region, city} = useAppSelector(s => s.listingForm)
     const {data, isLoading} = useQuery({queryKey: ['regions'], queryFn: getRegions})
     const citiesData = useQuery({
-        queryKey: ['getCitiesByRegion', selectedRegionID],
-        queryFn: () => getCitiesByRegion(selectedRegionID)
+        queryKey: ['getCitiesByRegion', region],
+        queryFn: () => getCitiesByRegion(region)
     })
-
+    const dispatch = useAppDispatch()
     const regions = data?.data ? data?.data : []
     const cities = citiesData.data ? citiesData.data : []
+
+    useEffect(() => {
+        if (!citiesData.isLoading) {
+            dispatch(setCity(cities[0].id))
+        }
+
+    }, [region, citiesData.isLoading]);
 
 
     return (
@@ -30,19 +35,25 @@ export default function LocationDetails() {
                        value={address}
                        validationType={'MIN2CHARACTERS'}
                        setValue={setAddress}
-                        required={true} validator={'მინიმუმ ორი სიმბოლო'}/>
+                       required={true} validator={'მინიმუმ ორი სიმბოლო'}/>
                 <Input
                     value={zip_code}
                     setValue={setZipCode}
                     validationType={"ONLYNUMBERS"}
-                    label={'საფოსტო ინდექსი'}  required={true} validator={'მხოლოდ რიცხვები'}/>
+                    label={'საფოსტო ინდექსი'} required={true} validator={'მხოლოდ რიცხვები'}/>
             </div>
             <div className={addListingStyles['detailsLocationSelect']}>
-                <Select data={isLoading ? [{id: -1, name: 'რეგიონი'}] : regions} label={'რეგიონი'}
-                        selectOption={setSelectedRegionID}
+                <Select
+                    value={region}
+                    setValue={setRegion}
+                    loading={isLoading} data={isLoading ? [{id: -1, name: 'რეგიონი'}] : regions} label={'რეგიონი'}
                 />
 
-                <Select data={cities} label={'ქალაქი'} selectOption={setSelectedCity}/>
+                <Select loading={isLoading}
+                        value={city}
+                        setValue={setCity}
+                        data={isLoading ? [{id: -1, name: 'ქალაქი'}] : cities}
+                        label={'ქალაქი'}/>
             </div>
         </div>)
 }
