@@ -10,9 +10,8 @@ import DeleteListingModal from "./pages/listing/components/DeleteListingModal.ts
 
 export default function App() {
     const location = useLocation()
-    const addingAgent = location.pathname === '/add-agent'
+    const addingAgent = location.pathname.toString().includes('/add-agent')
     const deletingListing = location.pathname.toString().includes('/delete')
-
     return <section className={appStyles['applicationWrapper']}>
 
         <header>
@@ -20,7 +19,7 @@ export default function App() {
         </header>
         <hr/>
 
-        {addingAgent || deletingListing && <div className={'outline'}></div>}
+        {(addingAgent || deletingListing) && <div className={'outline'}></div>}
         <Routes>
             <Route path={'/'} element={<Listings/>}>
                 <Route path={'add-agent'} element={<AddAgent/>}/>
