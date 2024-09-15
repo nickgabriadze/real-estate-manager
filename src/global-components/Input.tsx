@@ -4,30 +4,33 @@ import CheckmarkSVG from '/src-icons/checkmark.svg'
 import CheckmarkErrorSVG from '/src-icons/checkmark-error.svg'
 import CheckmarkValidSVG from '/src-icons/checkmark-valid.svg'
 import {ValidationOptions} from "../types/validationOptions.ts";
-import { useState} from "react";
+import {useEffect, useState} from "react";
 import {validate} from "./validate.ts";
 import {useAppDispatch} from "../hooks/redux.ts";
 import {ActionCreatorWithPayload} from "@reduxjs/toolkit";
 
 
-export default function Input({label, value, setValue, validator, type, required, validationType}: {
+export default function Input({label, value, setValue, validator, required, validationType}: {
     label: string;
     value: any,
     setValue:  ActionCreatorWithPayload<any>,
     validationType: ValidationOptions
     validator: string,
-    type: string,
     required: boolean
 }) {
     const dispatch = useAppDispatch()
     const [validState, setValidState] = useState<false | 'none' | 'valid'>(validate(validationType, value[0]))
 
 
+    useEffect(() => {
+        setValidState(validate(validationType, value[0]))
+    }, [value[0]]);
+
     return <div className={inputStyles['inputWrapper']}>
         <label htmlFor={label}>{label} {required ? "*" : ''}</label>
         <input
 
-            id={label} type={type}
+            id={label} type={'text'}
             value={value[0]}
             className={`${validState !== 'none' && !validState ? commonStyles['invalid'] : validState === 'valid' && commonStyles['valid']}`}
             onChange={(e) => {
@@ -36,7 +39,7 @@ export default function Input({label, value, setValue, validator, type, required
                 dispatch(setValue([e.target.value, validated]))
                 }
             }
-            required={required}/>
+           />
         {validator && <div>
             <img
                 src={validState !== 'none' && !validState ? CheckmarkErrorSVG : validState === 'valid' ? CheckmarkValidSVG : CheckmarkSVG}
