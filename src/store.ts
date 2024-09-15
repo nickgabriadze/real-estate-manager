@@ -2,12 +2,14 @@ import { configureStore } from '@reduxjs/toolkit'
 import filterReducer from "./features/filters/filterReducer.ts"
 import agentFormReducer from "./features/forms/agentFormReducer.ts";
 import listingFormReducer from "./features/forms/listingFormReducer.ts";
+import listingReducer from "./features/listings/listingReducer.ts";
 
 export const store = configureStore({
     reducer: {
         filters: filterReducer,
         listingForm: listingFormReducer,
-        agentForm: agentFormReducer
+        agentForm: agentFormReducer,
+        listings: listingReducer
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
