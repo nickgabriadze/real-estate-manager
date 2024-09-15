@@ -121,6 +121,7 @@
 
             & .deleteListing:hover {
                 color: white;
+                filter: brightness(100%);
                 background: #808A93;
 
             }
