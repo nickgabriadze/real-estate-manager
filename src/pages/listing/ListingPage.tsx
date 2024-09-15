@@ -19,8 +19,8 @@ export default function ListingPage(){
         <Outlet />
         <div className={listingPageStyles['listingPageWrapper']}>
         <button
-            onClick={() => navigate(-1)}
-            title={'Go Back'}><img src={LeftArrowSVG} width={18} alt={'Left arrow icon'}/></button>
+            onClick={() => navigate('/')}
+            title={'დაბრუნება საწყის გვერდზე'}><img src={LeftArrowSVG} width={18} alt={'Left arrow icon'}/></button>
         {!listing.isLoading && listing.data && <RealEstateDetails property={listing?.data?.data}/>}
         {/*<OtherListings />*/}
     </div>
