@@ -9,6 +9,13 @@ export const store = configureStore({
         listingForm: listingFormReducer,
         agentForm: agentFormReducer
     },
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            serializableCheck: {
+                ignoredActions: ['agentForm/setAgentAvatar', 'listingForm/setListingImage'],
+                ignoredPaths: ['agentForm.avatar', 'listingForm.image'],
+            },
+        }),
 })
 
 export type RootState = ReturnType<typeof store.getState>
