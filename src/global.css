@@ -53,7 +53,7 @@ p {
 }
 
 button:hover, a:hover {
-    filter: brightness(95%);
+    filter: brightness(90%);
 }
 
 input[type='checkbox'] {
@@ -86,7 +86,7 @@ input[type='radio'] {
     width: 100%;
 }
 
-.not-found > div:nth-child(1){
+.not-found > div:nth-child(1) {
     font-size: 2rem;
     text-align: center;
 }
@@ -112,11 +112,11 @@ input[type='radio'] {
     text-align: center;
 }
 
-.outline{
-        position: fixed;
-        top: 0;
-        width: 100%;
-        backdrop-filter: blur(3px) brightness(70%);
-        height: 100vh;
-        z-index: 999;
+.outline {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    backdrop-filter: blur(4px) brightness(70%);
+    height: 100vh;
+    z-index: 999;
 }
