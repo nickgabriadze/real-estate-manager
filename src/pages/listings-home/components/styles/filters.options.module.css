@@ -67,7 +67,8 @@
         & .rooms {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            justify-content: space-around;
+            gap: 10px;
             & .room {
                 height: 40px;
                 width: 40px;
