@@ -27,19 +27,18 @@ export default function OtherListings({region_id}: { region_id: number }) {
             dispatch(addListingsBulk(data?.data))
         }
     }, [listings.length, isLoading]);
-    console.log(carouselIndex)
     return similarListings.length > 0 && <div className={similarListingsStyle['othersWrapper']}>
         <h3>ბინები მსგავს ლოკაციაზე</h3>
 
         <div className={similarListingsStyle['propertiesWrapper']}>
             <button className={similarListingsStyle['leftArrow']}
-            onClick={() => {
-                if (carouselIndex[0] - 4 >= 0) {
-                    setCarouselIndex((prev) =>  [prev[0] - 4, prev[0] - 1])
-                }else{
-                    setCarouselIndex([0, Math.min(3, similarListings.length - 1)]);
-                }
-            }}
+                    onClick={() => {
+                        if (carouselIndex[0] - 4 >= 0) {
+                            setCarouselIndex((prev) => [prev[0] - 4, prev[0] - 1])
+                        } else {
+                            setCarouselIndex([0, Math.min(3, similarListings.length - 1)]);
+                        }
+                    }}
             ><img src={LeftArrowSVG} width={30} alt={'Left arrow icon'}/></button>
             <div className={similarListingsStyle['list']}>
                 {similarListings.slice(carouselIndex[0], carouselIndex[1] + 1).map(eachListing => <Property
@@ -47,14 +46,14 @@ export default function OtherListings({region_id}: { region_id: number }) {
                     home={eachListing}/>)}
             </div>
             <button className={similarListingsStyle['rightArrow']}
-            onClick={() => {
-                if (carouselIndex[1]  + 4 < similarListings.length) {
-                    setCarouselIndex((prev) =>  [prev[1], prev[1] + 4])
-                }else{
-                    const remainder = similarListings.length - carouselIndex[1]
-                    setCarouselIndex(prev => [prev[1] + remainder - 1, prev[1] + remainder])
-                }
-            }}
+                    onClick={() => {
+                        if (carouselIndex[1] + 4 < similarListings.length) {
+                            setCarouselIndex((prev) => [prev[1], prev[1] + 4])
+                        } else {
+                            const remainder = similarListings.length - carouselIndex[1]
+                            setCarouselIndex(prev => [prev[1] + remainder - 1, prev[1] + remainder])
+                        }
+                    }}
             ><img src={LeftArrowSVG} width={30} alt={'Right arrow icon'}/></button>
 
         </div>
