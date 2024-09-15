@@ -1,7 +1,7 @@
 import {Validation} from "../../types/validationOptions.ts";
 import {createSlice} from "@reduxjs/toolkit";
 
-type AgentFormState = { [key: string]: [string | File, Validation] }
+export type AgentFormState = { [key: string]: [string | File, Validation] }
 
 
 const initialState: AgentFormState = {
