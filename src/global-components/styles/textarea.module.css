@@ -11,6 +11,9 @@
         border: 1px solid var(--darker-border-color);
         height: 135px;
         border-radius: 10px;
+        font-family: 'Noto Sans Georgian', sans-serif;
+        padding: 10px;
+        font-weight: 500;
     }
 
     & div {
