@@ -2,7 +2,7 @@ export type Agent = {
     id?: number,
     name: string,
     surname: string,
-    avatar: string
+    avatar?: string | File,
     email: string,
     phone: string
 }
