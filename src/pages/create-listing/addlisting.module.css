@@ -70,7 +70,6 @@
     gap: 15px;
     float: right;
     width: 100%;
-
     align-items: center;
     justify-content: flex-end;
     & button {
@@ -94,5 +93,48 @@
         border: 1px solid var(--accent-color);
         color: var(--accent-color);
 
+    }
+}
+
+@media only screen and (max-width: 700px){
+    .addListingWrapper{
+        width: 100%;
+
+        & .detailInputs, .detailsLocationSelect{
+            flex-direction: column;
+        }
+
+        & .homeDetailInputs{
+            grid-template-columns: 1fr;
+        }
+
+        & .agents{
+            width: 100%;
+        }
+
+        & .dealType{
+            text-align: center;
+            & .dealOptionWrapper{
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        & .formButtons{
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            & button {
+                font-size: 12px;
+            }
+        }
+    }
+
+
+}
+
+@media only screen and (max-width: 1000px){
+    .addListingWrapper{
+        width: 70%;
     }
 }
