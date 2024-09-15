@@ -12,7 +12,7 @@ interface ListingForm {
     bedrooms: [string, Validation],
     description: [string, Validation],
     agent_id: number,
-
+    image: [string | File, Validation]
 }
 
 
@@ -27,7 +27,7 @@ const initialState:ListingForm = {
     bedrooms: ['', false],
     description: ['', false],
     agent_id: 0,
-
+    image: ['', false]
 }
 
 const listingFormSlice = createSlice({
@@ -63,6 +63,16 @@ const listingFormSlice = createSlice({
         },
         setZipCode: (state, action: {payload: [string, Validation]}) =>  {
             return {...state, zip_code: action.payload}
+        },
+
+        setListingImage: (state, action: {payload: [string | File, Validation]}) => {
+            return {...state, image: action.payload}
+        },
+
+        resetListingInfo: (_, __ ) => {
+            return {
+                ...initialState
+            }
         }
 
 
@@ -73,6 +83,6 @@ export const {
     setArea,setAddress, setCity,
     setDescription,setBedrooms,setPrice,setRegion,
     setZipCode,setAgentId,setRental,
-
+setListingImage
 } = listingFormSlice.actions
 export default listingFormSlice.reducer
