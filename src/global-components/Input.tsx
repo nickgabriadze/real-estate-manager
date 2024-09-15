@@ -29,7 +29,7 @@ export default function Input({label, value, setValue, validator, required, vali
     return <div className={inputStyles['inputWrapper']}>
         <label htmlFor={label}>{label} {required ? "*" : ''}</label>
         <input
-
+            autoComplete={'false'}
             id={label} type={'text'}
             value={value[0]}
             className={`${validState !== 'none' && !validState ? commonStyles['invalid'] : validState === 'valid' && commonStyles['valid']}`}
