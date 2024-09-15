@@ -42,7 +42,7 @@ export default function AddAgent() {
                 <Input label={"ტელეფონის ნომერი"}
                        value={agentDetails.phone}
                        setValue={setAgentPhone}
-                       validationType={"ONLYNUMBERS"}
+                       validationType={"PHONE"}
                        validator={"მხოლოდ რიცხვები"} type={"text"} required={true}/>
 
             </div>
