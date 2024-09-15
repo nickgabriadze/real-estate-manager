@@ -1,10 +1,11 @@
 import {Outlet, useNavigate, useParams} from "react-router-dom";
 import {useQuery} from "@tanstack/react-query";
-import getListing from "../../apis/getListing.ts";
+import getListing from "../../apis/listing/getListing.ts";
 import RealEstateDetails from "./components/RealEstateDetails.tsx";
 // import OtherListings from "./components/OtherListings.tsx";
 import LeftArrowSVG from '/src-icons/arrow-left.svg'
 import listingPageStyles from './styles/listingpage.module.css';
+import PageNotFound404 from "../../404.tsx";
 
 export default function ListingPage(){
     const {id} = useParams()
@@ -14,8 +15,7 @@ export default function ListingPage(){
         queryFn: () => getListing(Number(id))
     })
 
-
-    return <>
+    return listing.data?.status === 404 ? <PageNotFound404 /> : <>
         <Outlet />
         <div className={listingPageStyles['listingPageWrapper']}>
         <button
