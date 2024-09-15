@@ -9,7 +9,6 @@ import {Link} from "react-router-dom";
 
 export default function RealEstateDetails({property}: { property: Listing }) {
 
-    console.log(property.image)
     const formattedDate = new Date(property.created_at)
     const month = formattedDate.getMonth() > 9 ? `0${formattedDate.getMonth()}` : `${formattedDate.getMonth()}`
     const day = formattedDate.getDay() > 9 ? `0${formattedDate.getDate()}` : `${formattedDate.getDate()}`
