@@ -1,4 +1,4 @@
-import {Cities} from "../types/cities.ts";
+import {Cities} from "../../types/cities.ts";
 import axios from "axios";
 
 export default function getCitiesByRegion(regionID: number): Promise<Cities> {

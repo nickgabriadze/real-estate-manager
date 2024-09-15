@@ -1,4 +1,4 @@
-import axiosInstance from "../axios.ts";
+import axiosInstance from "../../axios.ts";
 
 export default async function deleteListing(id: number){
 

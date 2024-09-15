@@ -1,6 +1,6 @@
-import axiosInstance from "../axios.ts";
+import axiosInstance from "../../axios.ts";
 import {AxiosResponse} from "axios";
-import {Listings} from "../types/listings.ts";
+import {Listings} from "../../types/listings.ts";
 
 export default async function getListings():Promise<AxiosResponse<Listings>> {
 
