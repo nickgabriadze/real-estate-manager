@@ -5,21 +5,26 @@ import homeStyles from '../styles/homes.module.css';
 import {useAppDispatch, useAppSelector} from "../../../../hooks/redux.ts";
 import {setTotalAvailableRooms} from "../../../../features/filters/filterReducer.ts";
 import {useEffect} from "react";
+import {addListingsBulk} from "../../../../features/listings/listingReducer.ts";
 
 
 export default function Properties() {
+
     const homes = useQuery({
         queryKey: ['homeListings'],
-        queryFn: getListings
+        queryFn: getListings,
     })
     const regionFilters = useAppSelector(s => s.filters.regionFilters).map((r) => r.id);
     const roomFilters = useAppSelector(s => s.filters.roomFilters)
-    const filterDispatch = useAppDispatch()
+    const dispatch = useAppDispatch()
 
-    const listings = homes.data?.data ? homes.data?.data : [];
+    const listings = homes.data?.data ? homes.data.data : []
 
     useEffect(() => {
-            filterDispatch(setTotalAvailableRooms(Array.from(new Set(listings.map(l => l.bedrooms)))))
+            if(!homes.isLoading && homes.data?.data) {
+                dispatch(setTotalAvailableRooms(Array.from(new Set(homes.data.data.map(l => l.bedrooms)))))
+                dispatch(addListingsBulk(homes.data.data))
+            }
     }, [homes.isLoading]);
 
     const filters = useAppSelector(s => s.filters)
