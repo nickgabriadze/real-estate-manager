@@ -6,6 +6,7 @@ import RealEstateDetails from "./components/RealEstateDetails.tsx";
 import LeftArrowSVG from '/src-icons/arrow-left.svg'
 import listingPageStyles from './styles/listingpage.module.css';
 import PageNotFound404 from "../../404.tsx";
+import OtherListings from "./components/OtherListings.tsx";
 
 export default function ListingPage(){
     const {id} = useParams()
@@ -22,7 +23,7 @@ export default function ListingPage(){
             onClick={() => navigate('/')}
             title={'დაბრუნება საწყის გვერდზე'}><img src={LeftArrowSVG} width={18} alt={'Left arrow icon'}/></button>
         {!listing.isLoading && listing.data && <RealEstateDetails property={listing?.data?.data}/>}
-        {/*<OtherListings />*/}
+        <OtherListings region_id={Number(listing.data?.data.city.region_id)} />
     </div>
         </>
 }
