@@ -11,14 +11,14 @@ import {setAgentEmail, setAgentName, setAgentPhone, setAgentSurname} from "../..
 export default function AddAgent() {
     const navigate = useNavigate();
     const handleClickOutside = () => {
-            navigate(-1)
+        navigate(-1)
     }
 
 
-    const agentDetails = useAppSelector(s =>  s.agentForm)
+    const agentDetails = useAppSelector(s => s.agentForm)
     const agentFormClickOutsideRef = useClickOutside(handleClickOutside)
     return <section className={addAgentStyles['agentFormWrapper']} ref={agentFormClickOutsideRef}>
-            <h1>აგენტის დამატება</h1>
+        <h1>აგენტის დამატება</h1>
 
         <form>
             <div className={addAgentStyles['inputInformation']}>
@@ -46,7 +46,7 @@ export default function AddAgent() {
                        validator={"მხოლოდ რიცხვები"} type={"text"} required={true}/>
 
             </div>
-            <UploadPicture label={'ატვირთეთ ფოტო'}  required={true}/>
+            <UploadPicture label={'ატვირთეთ ფოტო'} required={true}/>
 
             <div className={addListingStyles['formButtons']}>
                 <button type={'reset'}>გაუქმება</button>
