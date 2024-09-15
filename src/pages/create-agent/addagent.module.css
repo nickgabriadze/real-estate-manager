@@ -34,6 +34,23 @@
     }
 }
 
+.agentAdd {
+    text-align: center;
+    .agentSuccess {
+        color: var(--form-valid);
+    }
+
+    .agentError {
+        color: var(--accent-color);
+    }
+
+    .loading{
+        font-weight: 600;
+        font-size: 16px;
+        color: var(--heading-color);
+    }
+}
+
 
 @media only screen and (max-height: 750px){
     .agentFormWrapper{
