@@ -1,5 +1,5 @@
 export type Agent = {
-    id: number,
+    id?: number,
     name: string,
     surname: string,
     avatar: string
