@@ -1,4 +1,5 @@
 import textareaStyles from './styles/textarea.module.css'
+import commonStyles from "./styles/common.module.css";
 import CheckmarkSVG from "/src-icons/checkmark.svg";
 import {useAppDispatch} from "../hooks/redux.ts";
 import {ActionCreatorWithPayload} from "@reduxjs/toolkit";
@@ -17,32 +18,28 @@ export default function Textarea({label, validationType, value, setValue, valida
     validator: string,
     required: boolean
 }) {
-    const [valid, setValid] = useState<Validation>('none')
+    const [validState, setValidState] = useState<Validation>(validate(validationType, value[0]))
     const dispatch = useAppDispatch()
 
     return <div className={textareaStyles['textareaWrapper']}>
         <h5>{label} {required ? "*" : ''}</h5>
         <textarea
-            style={valid !== 'none' && !valid ? {
-                outline: '1px solid var(--accent-color)',
-                border: '1px solid var(--accent-color)'
-            } : valid === 'valid' ? {
-                outline: '1px solid var(--form-valid)',
-                border: '1px solid var(--form-valid)'
-            } : {}}
+            className={`${validState !== 'none' && !validState ? commonStyles['invalid'] : validState === 'valid' && commonStyles['valid']}`}
+
             value={value[0]}
             onChange={(e) => {
                 const valid = validate(validationType, String(e.target.value))
-                setValid(valid)
+                setValidState(valid)
                 dispatch(setValue([e.target.value, valid]))
 
             }}
             required={required}/>
         {validator && <div>
             <img
-                src={valid !== 'none' && !valid ? CheckmarkErrorSVG : valid === 'valid' ? CheckmarkValidSVG : CheckmarkSVG}
+                src={validState !== 'none' && !validState ? CheckmarkErrorSVG : validState === 'valid' ? CheckmarkValidSVG : CheckmarkSVG}
                 alt={'Checkmark icon'} width={12}/>
-            <p style={valid !== 'none' && !valid ? {color: 'var(--accent-color)'} : valid === 'valid' ? {color: 'var(--form-valid)'} : {}}>{validator}</p>
+            <p
+                className={`${validState !== 'none' && !validState ? commonStyles['invalidColor'] : validState === 'valid' && commonStyles['validColor']}`}>{validator}</p>
         </div>}
 
     </div>

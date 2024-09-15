@@ -1,4 +1,5 @@
 import inputStyles from './styles/input.module.css'
+import commonStyles from './styles/common.module.css'
 import CheckmarkSVG from '/src-icons/checkmark.svg'
 import CheckmarkErrorSVG from '/src-icons/checkmark-error.svg'
 import CheckmarkValidSVG from '/src-icons/checkmark-valid.svg'
@@ -19,33 +20,29 @@ export default function Input({label, value, setValue, validator, type, required
     required: boolean
 }) {
     const dispatch = useAppDispatch()
-    const [valid, setValid] = useState<false | 'none' | 'valid'>('none')
+    const [validState, setValidState] = useState<false | 'none' | 'valid'>(validate(validationType, value[0]))
 
 
     return <div className={inputStyles['inputWrapper']}>
         <label htmlFor={label}>{label} {required ? "*" : ''}</label>
         <input
-            style={valid !== 'none' && !valid ? {
-                outline: '1px solid var(--accent-color)',
-                border: '1px solid var(--accent-color)'
-            } : valid === 'valid' ? {
-                outline: '1px solid var(--form-valid)',
-                border: '1px solid var(--form-valid)'
-            } : {}}
+
             id={label} type={type}
             value={value[0]}
+            className={`${validState !== 'none' && !validState ? commonStyles['invalid'] : validState === 'valid' && commonStyles['valid']}`}
             onChange={(e) => {
                 const validated = validate(validationType, e.target.value)
-                setValid(validated)
+                setValidState(validated)
                 dispatch(setValue([e.target.value, validated]))
                 }
             }
             required={required}/>
         {validator && <div>
             <img
-                src={valid !== 'none' && !valid ? CheckmarkErrorSVG : valid === 'valid' ? CheckmarkValidSVG : CheckmarkSVG}
+                src={validState !== 'none' && !validState ? CheckmarkErrorSVG : validState === 'valid' ? CheckmarkValidSVG : CheckmarkSVG}
                 alt={'Checkmark icon'} width={12}/>
-            <p style={valid !== 'none' && !valid ? {color: 'var(--accent-color)'} : valid === 'valid' ? {color: 'var(--form-valid)'} : {}}>{validator}</p>
+            <p
+                className={`${validState !== 'none' && !validState ? commonStyles['invalidColor'] : validState === 'valid' && commonStyles['validColor']}`}>{validator}</p>
         </div>}
     </div>
 }

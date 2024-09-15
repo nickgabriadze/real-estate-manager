@@ -1,0 +1,17 @@
+.valid {
+    outline: 1px solid var(--form-valid);
+    border: 1px solid var(--form-valid) !important;
+}
+
+.invalid {
+    outline: 1px solid var(--accent-color);
+    border: 1px solid var(--accent-color) !important;
+}
+
+.invalidColor{
+    color: var(--accent-color)
+}
+
+.validColor{
+    color: var(--form-valid);
+}
