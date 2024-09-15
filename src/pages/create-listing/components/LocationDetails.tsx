@@ -30,12 +30,12 @@ export default function LocationDetails() {
                        value={address}
                        validationType={'MIN2CHARACTERS'}
                        setValue={setAddress}
-                       type={'text'} required={true} validator={'მინიმუმ ორი სიმბოლო'}/>
+                        required={true} validator={'მინიმუმ ორი სიმბოლო'}/>
                 <Input
                     value={zip_code}
                     setValue={setZipCode}
                     validationType={"ONLYNUMBERS"}
-                    label={'საფოსტო ინდექსი'} type={'text'} required={true} validator={'მხოლოდ რიცხვები'}/>
+                    label={'საფოსტო ინდექსი'}  required={true} validator={'მხოლოდ რიცხვები'}/>
             </div>
             <div className={addListingStyles['detailsLocationSelect']}>
                 <Select data={isLoading ? [{id: -1, name: 'რეგიონი'}] : regions} label={'რეგიონი'}
