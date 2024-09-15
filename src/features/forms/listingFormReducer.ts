@@ -1,7 +1,7 @@
 import {Validation} from "../../types/validationOptions.ts";
 import {createSlice} from "@reduxjs/toolkit";
 
-interface ListingForm {
+export interface ListingForm {
     is_rental: 1 | 0,
     address: [string, Validation],
     zip_code: [string, Validation],
@@ -83,6 +83,6 @@ export const {
     setArea,setAddress, setCity,
     setDescription,setBedrooms,setPrice,setRegion,
     setZipCode,setAgentId,setRental,
-setListingImage
+setListingImage, resetListingInfo
 } = listingFormSlice.actions
 export default listingFormSlice.reducer
