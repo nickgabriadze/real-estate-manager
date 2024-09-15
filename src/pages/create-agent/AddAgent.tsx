@@ -15,6 +15,7 @@ import {
 } from "../../features/forms/agentFormReducer.ts";
 import createAgent from "../../apis/agent/createAgent.ts";
 import {FormEvent, useState} from "react";
+import setupAgentFormData from "./setupFormData.ts";
 
 
 export default function AddAgent() {
@@ -37,13 +38,7 @@ export default function AddAgent() {
 
         if (allValid && !loading) {
             setLoading(true)
-            const formData = new FormData()
-            formData.append('name', String(agentDetails.name[0]))
-            formData.append('surname', String(agentDetails.surname[0]))
-            formData.append('phone', String(agentDetails.phone[0]))
-            formData.append('email', String(agentDetails.email[0]))
-            formData.append('avatar', agentDetails.avatar[0])
-
+            const formData = setupAgentFormData(agentDetails)
             const request = await createAgent(formData);
             if (request.status === 201) {
                 setAgentSuccess(true)
