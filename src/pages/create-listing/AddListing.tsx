@@ -9,6 +9,7 @@ import setupFormData from "./setupFormData.ts";
 import createListing from "../../apis/listing/createListing.tsx";
 import {resetListingInfo} from "../../features/forms/listingFormReducer.ts";
 import addAgentStyles from "../create-agent/addagent.module.css";
+import {Link} from "react-router-dom";
 
 export default function AddListing() {
     const listingForm = useAppSelector(s => s.listingForm)
@@ -70,10 +71,10 @@ export default function AddListing() {
                 <p className={addAgentStyles['agentError']}>ლისტინგის დამატება ვერ მოხერხდა, ცადეთ მოგვიანებით</p>}
         </div>}
         <div className={addListingStyles['formButtons']}>
-            <button type={'reset'}
+            <Link to={'/'}
                     onClick={() => dispatch(resetListingInfo({}))}
             >გაუქმება
-            </button>
+            </Link>
             <button type={'submit'}>დაამატე ლისტინგი</button>
         </div>
     </form>)

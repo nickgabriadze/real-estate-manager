@@ -3,7 +3,7 @@ import UploadPicture from "../../global-components/UploadPicture.tsx";
 import Input from "../../global-components/Input.tsx";
 import addListingStyles from "../create-listing/addlisting.module.css";
 import useClickOutside from "../../hooks/useClickOutside.ts";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../../hooks/redux.ts";
 import {
     resetAgentInfo,
@@ -103,10 +103,10 @@ export default function AddAgent() {
                     <p className={addAgentStyles['agentError']}>აგენტის დამატება ვერ მოხერხდა, ცადეთ მოგვიანებით</p>}
             </div>}
             <div className={addListingStyles['formButtons']}>
-                <button type={'reset'}
+                <Link to={'/'}
                         onClick={() => dispatch(resetAgentInfo({}))}
                 >გაუქმება
-                </button>
+                </Link>
                 <button type={'submit'}>დაამატე აგენტი</button>
             </div>
 
