@@ -1,25 +1,30 @@
-.filterWrapper{
+.filterWrapper {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 15px;
-    height: 47px;
+
     & h3 {
         font-size: 16px;
         line-height: 19px;
+        color: #021526;
+
+
     }
 }
 
-.filtersCreate{
+.filtersCreate {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 100%;
-    & .create{
+
+    & .create {
         display: flex;
         gap: 16px;
         align-items: center;
         height: 100%;
+
         & a {
             display: flex;
             gap: 10px;
@@ -31,13 +36,14 @@
             height: 100%;
 
         }
-        & a:nth-child(1){
+
+        & a:nth-child(1) {
             background-color: var(--accent-color);
             color: white;
 
         }
 
-        & a:nth-child(2){
+        & a:nth-child(2) {
             color: var(--accent-color);
             outline: 1px solid var(--accent-color);
 
@@ -57,19 +63,20 @@
     float: right;
 }
 
-.filterOptions{
+.filterOptions {
     display: flex;
     gap: 5px;
     align-items: center;
     outline: 1px solid var(--border-color);
     width: fit-content;
     border-radius: 10px;
+
     & .filterOption {
         margin: 5px;
         border-radius: 6px;
     }
 
-    & .filterOption:hover{
+    & .filterOption:hover {
         background: #F3F3F3
     }
 }
@@ -79,6 +86,7 @@
     gap: 10px;
     cursor: pointer;
     flex-wrap: wrap;
+
     & div {
         display: flex;
         align-items: center;
@@ -92,21 +100,36 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-top:2px;
+            margin-top: 2px;
         }
     }
-    & p{
+
+    & p {
         font-size: 14px;
         color: #021526CC;
-        font-weight: 600;
+        font-weight: 400;
 
     }
-    & button{
+
+    & button {
         font-weight: 600;
         margin-left: 5px;
     }
 
-    & button:hover{
+    & button:hover {
         color: var(--accent-color);
+    }
+}
+
+@media only screen and (max-width: 1500px){
+    .filtersCreate{
+        width: 100%;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .selectedFilters{
+        align-items: center;
+        justify-content: center;
     }
 }

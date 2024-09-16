@@ -5,3 +5,9 @@
     flex-direction: column;
     gap: 30px;
 }
+
+@media only screen and (max-width: 1500px){
+    .listingsPageWrapper{
+        gap: 20px
+    }
+}
