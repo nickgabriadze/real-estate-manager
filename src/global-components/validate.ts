@@ -5,6 +5,8 @@ export function validate(validation: ValidationOptions, value: any) {
         return 'none';
     }
     switch (validation) {
+        case 'RANGENUMBER':
+            return  /^\d*$/.test(value) ? 'valid' : false;
         case "MIN2CHARACTERS":
             return value.trim().length > 1 ? 'valid' : false;
         case "REDBERRYEMAIL":
