@@ -16,7 +16,7 @@
     margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6, p, a,  button, label, input, option, select, span {
+h1, h2, h3, h4, h5, h6, p, a,  button, label, input, option, select, span, sup {
     font-family: 'FiraGO', 'Noto Sans Georgian', sans-serif;
 }
 
@@ -32,6 +32,14 @@ button, a {
     border: none;
     background-color: transparent;
     cursor: pointer;
+}
+
+sup {
+    font-size: 10px;
+    line-height: 12px;
+    font-weight: 400;
+    position: relative;
+    top: 1px;
 }
 
 a {
