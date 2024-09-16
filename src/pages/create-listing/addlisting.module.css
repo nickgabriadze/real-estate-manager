@@ -72,7 +72,7 @@
     width: 100%;
     align-items: center;
     justify-content: flex-end;
-    & button {
+    & button, a {
         display: flex;
         align-items: center;
         gap: 2px;
@@ -89,7 +89,7 @@
 
     }
 
-    & button:nth-child(1) {
+    & button:nth-child(1), a {
         border: 1px solid var(--accent-color);
         color: var(--accent-color);
 
@@ -124,7 +124,7 @@
             width: 100%;
             align-items: center;
             justify-content: center;
-            & button {
+            & button, a {
                 font-size: 12px;
             }
         }
