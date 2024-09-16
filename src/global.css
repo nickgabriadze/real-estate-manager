@@ -16,13 +16,14 @@
     margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6, p, a,  button, label, input, option, select, span, sup {
+h1, h2, h3, h4, h5, h6, p, a, button, label, input, option, select, span, sup {
     font-family: 'FiraGO', 'Noto Sans Georgian', sans-serif;
 }
 
 button {
     transition: all 300ms linear;
 }
+
 a {
     font-size: 14px;
 }
@@ -50,13 +51,6 @@ p {
     font-size: 14px;
 }
 
-& label, h5 {
-    font-size: 14px;
-    line-height: 17px;
-    color: var(--heading-color);
-    font-weight: bold;
-}
-
 & h1 {
     text-align: center;
     font-size: 32px;
@@ -81,6 +75,7 @@ input[type='radio'] {
     height: 17px;
     accent-color: black;
 }
+
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
