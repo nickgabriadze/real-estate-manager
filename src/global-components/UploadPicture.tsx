@@ -32,7 +32,7 @@ export default function UploadPicture({label, value, setValue, required}: {
     }
 
     return <div className={uploadStyles['uploadWrapper']}>
-        <h5>{label} {required ? "*" : ''}</h5>
+        <label>{label} {required ? "*" : ''}</label>
 
         <label htmlFor={'pictureUpload'} className={uploadStyles['uploadContainer']}
                style={value[1] === 'none' ? {border: '2px dotted var(--accent-color)'} : {}}

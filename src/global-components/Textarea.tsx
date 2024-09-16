@@ -27,7 +27,7 @@ export default function Textarea({label, validationType, value, setValue, valida
     }, [value[0]]);
 
     return <div className={textareaStyles['textareaWrapper']}>
-        <h5>{label} {required ? "*" : ''}</h5>
+        <label>{label} {required ? "*" : ''}</label>
         <textarea
             id={'description'}
             className={`${validState !== 'none' && !validState ? commonStyles['invalid'] : validState === 'valid' && commonStyles['valid']}`}
