@@ -1,8 +1,7 @@
 import filterStyles from './styles/filters.module.css'
 import RegionFilter from "./filter-options/RegionFilter.tsx";
-import Pricing from "./filter-options/Pricing.tsx";
-import Area from "./filter-options/Area.tsx";
 import Rooms from "./filter-options/Rooms.tsx";
+import Range from "./filter-options/Range.tsx";
 import AddIconWhiteSVG from '/src-icons/add-white.svg'
 import AddIconOrangeSVG from '/src-icons/add-orange.svg'
 import {useState} from "react";
@@ -30,8 +29,15 @@ export default function Filters() {
             <div className={filterStyles['filterOptions']}>
                 <RegionFilter params={urlParams} regionsData={data?.data ? data.data : []} isLoading={isLoading}
                               visible={{status: optionOpen === 'region', makeVisible: setOptionOpen}}/>
-                <Pricing/>
-                <Area/>
+
+                <Range name={'საფასო კატეგორია'}
+                       type={'pricing'}
+                       visible={{status: optionOpen === 'pricing', makeVisible: setOptionOpen}}
+                       params={urlParams}/>
+                <Range name={'ფართობი'}
+                       type={'area'}
+                       visible={{status: optionOpen === 'area', makeVisible: setOptionOpen}}
+                       params={urlParams}/>
                 <Rooms params={urlParams} visible={{status: optionOpen === 'rooms', makeVisible: setOptionOpen}}/>
             </div>
 
