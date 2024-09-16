@@ -8,7 +8,7 @@
         font-size: 16px;
         line-height: 19px;
         color: #021526;
-
+        font-weight: 500;
 
     }
 }
@@ -100,7 +100,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-top: 2px;
+            height: 100%;
         }
     }
 

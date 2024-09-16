@@ -8,6 +8,7 @@
     height: fit-content;
     & h3 {
         color: #021526;
+        font-weight: 500;
 
     }
 }
@@ -58,11 +59,95 @@
     z-index: 99;
 }
 
+.invalidRange{
+    outline: 1px solid var(--accent-color) !important;
+}
+.invalidMessage{
+    position: absolute;
+    width: 100%;
+    top:45px;
+    
+}
+
 .range{
     display: flex;
     gap: 30px;
     flex-direction: column;
     width: fit-content;
+
+    & .rangeInputs{
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+        position: relative;
+
+        & .rangeInput{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 150px;
+            height: 40px;
+            outline: 1px solid #808A93;
+            border-radius: 6px;
+            padding:10px;
+
+            & span {
+                color: #021526B2;
+
+            }
+
+
+            & input{
+                width: 100%;
+                height: 100%;
+                border: none;
+                outline: transparent;
+                font-weight: 400;
+                font-size: 14px;
+            }
+
+            & input::placeholder{
+                color: #02152666;
+            }
+        }
+    }
+
+    & .rangeValues{
+        display: flex;
+        gap: 24px;
+
+        & .min, .max {
+            display: flex;
+            flex-direction: column;
+            width: 150px;
+            gap: 15px;
+            align-items: flex-start;
+            & .values{
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                align-items: flex-start;
+
+                & button {
+                    font-size: 14px;
+                    font-weight: 400;
+                    border-radius: 5px;
+                    color: #2D3648;
+                }
+
+                & button:hover{
+                    filter: brightness(100%);
+                    color: var(--accent-color);
+                }
+            }
+        }
+
+        & h5 {
+            color: #021526;
+            font-weight: 500;
+            font-size: 14px;
+        }
+    }
 }
 .roomsWrapper {
     position: relative;
@@ -75,9 +160,9 @@
         gap: 20px;
 
         & .rooms {
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
             flex-wrap: wrap;
-            justify-content: space-around;
             gap: 10px;
             & .room {
                 height: 40px;
@@ -91,6 +176,7 @@
             & .room:hover{
                 color: black;
                 border: 1px solid #34383b;
+
 
             }
         }
