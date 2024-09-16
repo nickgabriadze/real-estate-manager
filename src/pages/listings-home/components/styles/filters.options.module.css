@@ -6,6 +6,10 @@
     gap: 6px;
     padding: 10px;
 
+    & h3 {
+        color: #021526;
+
+    }
 }
 
 
@@ -21,6 +25,7 @@
         flex-direction: column;
         width: fit-content;
         gap: 30px;
+
 
 
         & .mappedRegions {
@@ -45,7 +50,6 @@
 }
 .regions, .roomOptions{
     border-radius: 10px;
-
     padding: 20px;
     border: 1px solid var(--border-color);
     position: absolute;

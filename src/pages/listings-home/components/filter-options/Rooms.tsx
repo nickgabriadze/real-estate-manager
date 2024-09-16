@@ -52,6 +52,7 @@ export default function Rooms({visible, params}: {
     return (
         <div className={filterOptionsStyles['roomsWrapper']} ref={roomsClickOutsideRef}>
             <button className={`${filterOptionsStyles['filterOptionsButton']} ${filterStyles['filterOption']}`}
+                    style={visible.status ? {background: '#F3F3F3'}: {}}
                     onClick={() => visible.makeVisible(visible.status ? 'none' : 'rooms')}>
                 <h3>საძინებლების რაოდენობა</h3>
                 <img src={visible.status ? UpArrowSVG : DownArrowSVG} alt={'Arrow icon'} width={12}/>

@@ -36,10 +36,10 @@ export default function Filters() {
             </div>
 
             <div className={filterStyles['create']}>
-                <Link to={'/add-listing'}><img src={AddIconWhiteSVG} width={12} alt={'Add icon'}/><h4>ლისტინგის
-                    დამატება</h4></Link>
-                <Link to={'/add-agent'}><img src={AddIconOrangeSVG} width={12} alt={'Add icon'}/><h4>აგენტის
-                    დამატება</h4></Link>
+                <Link to={'/add-listing'}><img src={AddIconWhiteSVG} width={12} alt={'Add icon'}/><p>ლისტინგის
+                    დამატება</p></Link>
+                <Link to={'/add-agent'}><img src={AddIconOrangeSVG} width={12} alt={'Add icon'}/><p>აგენტის
+                    დამატება</p></Link>
 
             </div>
         </div>
