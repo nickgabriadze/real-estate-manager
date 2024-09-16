@@ -19,4 +19,13 @@
         background-position-y: 50%;
 
     }
+
+    & h5 {
+        font-weight: 500;
+        color: #021526;
+        font-size: 14px;
+        line-height: 17px;
+
+
+    }
 }

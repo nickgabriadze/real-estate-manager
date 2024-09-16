@@ -2,7 +2,7 @@
     display: flex;
     width: 50%;
     margin: auto auto;
-    gap: 70px;
+    gap: 30px;
     padding: 30px;
     flex-direction: column;
 
@@ -10,6 +10,8 @@
     & h3 {
         line-height: 20px;
         font-size: 16px;
+        font-weight: 500;
+        color: #1A1A1F;
     }
 
 
@@ -28,7 +30,6 @@
             display: flex;
             gap: 50px;
 
-            color: var(--heading-color);
 
             & .dealOption {
                 display: flex;
@@ -94,6 +95,12 @@
         color: var(--accent-color);
 
     }
+}
+
+.listingFormInformationWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
 }
 
 @media only screen and (max-width: 700px){

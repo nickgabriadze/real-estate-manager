@@ -4,6 +4,12 @@
     flex-direction: column;
     width: 100%;
 
+    & label{
+        font-weight: 500;
+        color: #021526;
+        font-size: 14px;
+    }
+
     & .uploadContainer {
         width: 100%;
         border: 2px dashed var(--darker-border-color);

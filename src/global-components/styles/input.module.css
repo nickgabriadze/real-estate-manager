@@ -19,4 +19,10 @@
         align-items: center;
         gap: 3px;
     }
+
+    & label{
+        color: #021526;
+        font-size: 14px;
+        font-weight: 500;
+    }
 }
