@@ -17,12 +17,12 @@ export default function HomeDetails() {
                 value={price}
                 validationType={'ONLYNUMBERS'}
                 setValue={setPrice}
-                label={'ფასი'} required={false} validator={'მხოლოდ რიცხვები'}/>
+                label={'ფასი'} required={true} validator={'მხოლოდ რიცხვები'}/>
             <Input
                 value={area}
                 setValue={setArea}
                 validationType={'ONLYNUMBERS'}
-                label={'ფართობი'} required={false} validator={'მხოლოდ რიცხვები'}/>
+                label={'ფართობი'} required={true} validator={'მხოლოდ რიცხვები'}/>
             <Input
                 value={bedrooms}
                 setValue={setBedrooms}
