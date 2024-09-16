@@ -105,5 +105,8 @@ const filterSlice = createSlice({
 
 })
 
-export const {addRegionFilters, removeRegionFilters, removeRoomFilters, resetAll, addRoomFilters, setTotalAvailableRooms} = filterSlice.actions
+export const {addRegionFilters, removeRegionFilters
+    , removeRoomFilters, resetAll, addRoomFilters
+    , setTotalAvailableRooms, setAreaFilter, setPriceFilter,
+resetAreaFilter, resetPriceFilter} = filterSlice.actions
 export default filterSlice.reducer
