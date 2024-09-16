@@ -51,12 +51,12 @@ export default function AddListing() {
     return (<form className={addListingStyles['addListingWrapper']} onSubmit={handleListingForm}>
         <h1>ლისტინგის დამატება</h1>
 
-
-        <DealDetails/>
-        <LocationDetails/>
-        <HomeDetails/>
-        <AgentDetails/>
-
+        <div className={addListingStyles['listingFormInformationWrapper']}>
+            <DealDetails/>
+            <LocationDetails/>
+            <HomeDetails/>
+            <AgentDetails/>
+        </div>
 
         {loading &&
             <div className={addAgentStyles['agentAdd']}><p className={addAgentStyles['loading']}>მოთხოვნა მიღებულია,
