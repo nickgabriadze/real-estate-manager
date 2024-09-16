@@ -8,7 +8,7 @@ export default function AgentCard({agent}:{agent: Agent}){
 
     return <div className={agentStyles['agentCardWrapper']}>
         <div className={agentStyles['agentDetails']}>
-            <img src={agent.avatar}  alt="Agent picture"/>
+            <img src={String(agent.avatar)}  alt="Agent picture"/>
 
             <div>
                 <h5>{agent.name} {agent.surname}</h5>

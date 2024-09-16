@@ -57,11 +57,14 @@
             gap: 30px;
             width: 100%;
 
-            & p {
-                font-weight: 400;
-                line-height: 19px;
-                color: #021526B2;
+            & h1 {
+                font-weight: bold
+            }
 
+            & p {
+                line-height: 19px;
+                color: #808A93;
+                font-weight: 400;
             }
 
             & .interior {
@@ -79,8 +82,6 @@
 
                     & p {
                         font-size: clamp(12px, 1vw, 16px);
-                        font-weight: 500;
-
                     }
                 }
 

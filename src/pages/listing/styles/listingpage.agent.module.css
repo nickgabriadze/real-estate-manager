@@ -18,12 +18,20 @@
             height: 70px;
         }
 
-        & h5 {
-            font-weight: 600;
+        & div {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        & h5{
+            color: #021526;
+            font-size: 16px;
+            font-weight: 400;
         }
 
         & p {
-            font-weight: 500;
+            font-weight: 400;
             color: #808A93;
         }
     }
@@ -40,6 +48,7 @@
 
             & p {
                 color: #808A93;
+                font-weight: 400;
             }
         }
     }
