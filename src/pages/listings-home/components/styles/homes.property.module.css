@@ -76,11 +76,7 @@
                     color: #021526B2;
                 }
             }
-            & div:nth-child(2){
-                & p{
-                    margin-bottom: 4px;
-                }
-            }
+
         }
     }
 }

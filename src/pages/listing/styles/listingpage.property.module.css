@@ -7,7 +7,7 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap:10px;
+        gap: 10px;
         width: 50%;
 
         & .image {
@@ -85,16 +85,6 @@
                     }
                 }
 
-                /* this is necessary for square meter to align perfectly with the area text*/
-
-                & div:nth-child(1) {
-                    margin-bottom: -5px;
-                }
-
-                & div:nth-child(2) {
-                    align-items: flex-end;
-
-                }
             }
 
             .description {
@@ -131,17 +121,18 @@
 }
 
 
+@media only screen and (max-width: 1300px) {
 
-@media only screen and (max-width: 1300px){
-
-    .propertyWrapper{
+    .propertyWrapper {
         gap: 50px;
-        & .detailsWrapper{
+
+        & .detailsWrapper {
             padding: 0;
 
         }
     }
 }
+
 @media only screen and (max-width: 1000px) {
     .propertyWrapper {
         flex-direction: column;
