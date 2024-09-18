@@ -10,7 +10,7 @@ import {useAppDispatch} from "../hooks/redux.ts";
 import {ActionCreatorWithPayload} from "@reduxjs/toolkit";
 
 
-export default function Input({label, value, name, setValue, validator, required, validationType}: {
+export default function Input({label, value, name, setValue, validator, block, required, validationType}: {
     label: string;
     value: any,
     name: string,
@@ -18,16 +18,19 @@ export default function Input({label, value, name, setValue, validator, required
     validationType: ValidationOptions
     validator: string,
     required: boolean,
+    block: boolean
 }) {
     const dispatch = useAppDispatch()
     const [validState, setValidState] = useState<false | 'none' | 'valid'>(validate(validationType, value[0]))
     const sessionStorageValue = sessionStorage.getItem(name)
     useEffect(() => {
-        if (sessionStorageValue) {
-            const valid = validate(validationType, value[0])
-            dispatch(setValue([sessionStorageValue, valid]))
+        if (!block) {
+            if (sessionStorageValue) {
+                const valid = validate(validationType, value[0])
+                dispatch(setValue([sessionStorageValue, valid]))
+            }
         }
-    }, [sessionStorageValue]);
+    }, [block, sessionStorageValue]);
 
     useEffect(() => {
         setValidState(validate(validationType, value[0]))
@@ -44,8 +47,9 @@ export default function Input({label, value, name, setValue, validator, required
                 const validated = validate(validationType, e.target.value)
                 setValidState(validated)
                 dispatch(setValue([e.target.value, validated]))
-                sessionStorage.setItem(`${name}`, e.target.value)
-            }
+                !block && sessionStorage.setItem(`${name}`, e.target.value)
+
+                }
             }
         />
         {validator && <div>

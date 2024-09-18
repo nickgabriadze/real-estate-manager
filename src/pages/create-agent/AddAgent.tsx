@@ -66,11 +66,13 @@ export default function AddAgent() {
                        name={'agent'}
                        value={agentDetails.name}
                        setValue={setAgentName}
+                       block={true}
                        validator={"მინიმუმ ორი სიმბოლო"}
                        validationType={'MIN2CHARACTERS'}
                        required={true}/>
                 <Input label={"გვარი"}
                        name={'surname'}
+                       block={true}
                        value={agentDetails.surname}
                        setValue={setAgentSurname}
                        validator={"მინიმუმ ორი სიმბოლო"}
@@ -78,6 +80,7 @@ export default function AddAgent() {
                        required={true}/>
                 <Input label={"ელ-ფოსტა"}
                        name={'email'}
+                       block={true}
                        value={agentDetails.email}
                        setValue={setAgentEmail}
                        validationType={'REDBERRYEMAIL'}
@@ -86,6 +89,7 @@ export default function AddAgent() {
                        value={agentDetails.phone}
                        setValue={setAgentPhone}
                        name={'phone'}
+                       block={true}
                        validationType={"PHONE"}
                        validator={"მხოლოდ რიცხვები"} required={true}/>
 

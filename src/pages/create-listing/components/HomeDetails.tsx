@@ -18,10 +18,12 @@ export default function HomeDetails() {
                 name={'price'}
                 validationType={'ONLYNUMBERS'}
                 setValue={setPrice}
+                block={false}
                 label={'ფასი'} required={true} validator={'მხოლოდ რიცხვები'}/>
             <Input
                 value={area}
                 name={'area'}
+                block={false}
                 setValue={setArea}
                 validationType={'ONLYNUMBERS'}
                 label={'ფართობი'} required={true} validator={'მხოლოდ რიცხვები'}/>
@@ -29,6 +31,7 @@ export default function HomeDetails() {
                 value={bedrooms}
                 setValue={setBedrooms}
                 name={'bedrooms'}
+                block={false}
                 validationType={'ONLYNUMBERS'}
                 label={'საძინებლების რაოდენობა'}
                 required={true} validator={'მხოლოდ რიცხვები'}/>
