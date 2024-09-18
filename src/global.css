@@ -16,7 +16,7 @@
     margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6, p, a, button, label, input, option, select, span, sup {
+h1, h2, h3, h4, h5, h6, p, a, button, label, input, option, select, span, sup, div {
     font-family: 'FiraGO', 'Noto Sans Georgian', sans-serif;
 }
 
@@ -26,6 +26,7 @@ button {
 
 a {
     font-size: 14px;
+    color: inherit;
 }
 
 button, a {
