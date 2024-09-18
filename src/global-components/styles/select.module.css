@@ -1,9 +1,8 @@
-.selectWrapper{
+.selectWrapper {
     display: flex;
     gap: 8px;
     flex-direction: column;
     width: 100%;
-
 
 
     & select {
@@ -28,4 +27,98 @@
 
 
     }
+
+
+    & .dropDownWrapper {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: fit-content;
+        position: relative;
+        z-index: 999;
+
+        & .addAgentOption {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 8px;
+
+        }
+
+        & .dropDownMainOption, .dropDownOption{
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 19px;
+            color: #021526;
+            height: 42px;
+            width: 100%;
+            padding: 10px;
+            transition: all 300ms linear;
+        }
+
+        & .dropDownOptions{
+            height: 250px;
+            width: 100%;
+            overflow-y:scroll;
+            border: 1px solid #808A93;
+            position: absolute;
+            background-color: white;
+            top: 42px;
+            border-radius: 0 0 6px 6px;
+
+
+            & .dropDownOption {
+                border-bottom: 1px solid #808A93;
+                width: 100%;
+
+
+            }
+
+            & .dropDownOption:last-child{
+                border-bottom: none;
+
+            }
+
+        }
+
+
+        & .dropDownMainOption {
+            width: 100%;
+            border: 1px solid #808A93;
+            padding: 10px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        & .dropDownOption{
+            transition: all 100ms linear;
+
+        }
+        & .dropDownOption:hover{
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+
+
+
+        & .dropDownOpen {
+            border-radius: 6px 6px 0 0;
+            border-bottom: none;
+        }
+    }
+}
+
+.dropDownOptions::-webkit-scrollbar {
+    width: 1px;
+}
+.dropDownOptions::-webkit-scrollbar-track {
+    background-color: transparent;
+
+}
+.dropDownOptions::-webkit-scrollbar-thumb {
+    background: var(--heading-color);
+
+
+
 }
