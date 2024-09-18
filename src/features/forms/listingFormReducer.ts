@@ -20,13 +20,13 @@ const initialState:ListingForm = {
     is_rental: 0,
     address: ['', false],
     zip_code: ['', false],
-    region: 1,
-    city: 1,
+    region: -1,
+    city: -1,
     price: ['', false],
     area: ['', false],
     bedrooms: ['', false],
     description: ['', false],
-    agent_id: 0,
+    agent_id: -1,
     image: ['', false]
 }
 
