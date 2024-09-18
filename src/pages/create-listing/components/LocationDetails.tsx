@@ -42,6 +42,7 @@ export default function LocationDetails() {
 
                 <Select loading={isLoading}
                         value={city}
+                        forCity={region}
                         setValue={setCity}
                         data={isLoading ? [{id: -1, name: 'ქალაქი'}] : cities}
                         label={'ქალაქი'}/>
