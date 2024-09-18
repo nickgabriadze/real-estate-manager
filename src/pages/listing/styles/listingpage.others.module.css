@@ -1,10 +1,11 @@
-.othersWrapper{
+.othersWrapper {
     margin-top: 40px;
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 60px;
     position: relative;
+
     & h3 {
         font-size: clamp(24px, 2vw, 32px);
         font-weight: 500;
@@ -12,12 +13,14 @@
 
     & .list {
         width: 100%;
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        display: flex;
+        align-items: center;
+        justify-content: center;
         gap: 20px;
+
     }
 
-    & .propertiesWrapper{
+    & .propertiesWrapper {
         display: flex;
         align-items: center;
         width: 100%;
@@ -26,14 +29,19 @@
             position: absolute;
         }
 
-        & .leftArrow{
-            left: -80px;
+        & .leftArrow {
+            left: -8%;
         }
 
-        & .rightArrow{
-            right: -80px;
+        & .rightArrow {
+            right: -8%;
             rotate: 180deg;
         }
 
     }
+}
+
+.arrowDisabled {
+    & img {
+        filter: invert(92%) sepia(3%) saturate(143%) hue-rotate(201deg) brightness(106%) contrast(93%);    }
 }
