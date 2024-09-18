@@ -3,7 +3,7 @@ import UploadPicture from "../../global-components/UploadPicture.tsx";
 import Input from "../../global-components/Input.tsx";
 import addListingStyles from "../create-listing/addlisting.module.css";
 import useClickOutside from "../../hooks/useClickOutside.ts";
-import {Link, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../../hooks/redux.ts";
 import {
     resetAgentInfo,
@@ -21,7 +21,7 @@ import setupAgentFormData from "./setupFormData.ts";
 export default function AddAgent() {
     const navigate = useNavigate();
     const handleClickOutside = () => {
-        navigate('/')
+        navigate(-1)
     }
 
     const dispatch = useAppDispatch()
@@ -103,10 +103,13 @@ export default function AddAgent() {
                     <p className={addAgentStyles['agentError']}>აგენტის დამატება ვერ მოხერხდა, ცადეთ მოგვიანებით</p>}
             </div>}
             <div className={addListingStyles['formButtons']}>
-                <Link to={'/'}
-                        onClick={() => dispatch(resetAgentInfo({}))}
+                <button type={'button'}
+                        onClick={() => {
+                            dispatch(resetAgentInfo({}))
+                            navigate(-1)
+                        }}
                 >გაუქმება
-                </Link>
+                </button>
                 <button type={'submit'}>დაამატე აგენტი</button>
             </div>
 
