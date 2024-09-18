@@ -1,4 +1,4 @@
-import {ListingForm} from "../../features/forms/listingFormReducer.ts";
+import {ListingForm} from "../../../features/forms/listingFormReducer.ts";
 
 export default function setupFormData(listingForm: ListingForm){
     const formData = new FormData()

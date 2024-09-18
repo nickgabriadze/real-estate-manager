@@ -20,8 +20,14 @@ export default function Textarea({label, validationType, value, setValue, valida
 }) {
     const [validState, setValidState] = useState<Validation>(validate(validationType, value[0]))
     const dispatch = useAppDispatch()
+    const sessionStorageValue = sessionStorage.getItem('description')
 
-
+    useEffect(() => {
+        if (sessionStorageValue) {
+            const valid = validate(validationType, value[0])
+            dispatch(setValue([sessionStorageValue, valid]))
+        }
+    }, [sessionStorageValue]);
     useEffect(() => {
         setValidState(validate(validationType, value[0]))
     }, [value[0]]);
@@ -36,9 +42,9 @@ export default function Textarea({label, validationType, value, setValue, valida
                 const valid = validate(validationType, String(e.target.value))
                 setValidState(valid)
                 dispatch(setValue([e.target.value, valid]))
-
+                sessionStorage.setItem('description', e.target.value)
             }}
-           />
+        />
         {validator && <div>
             <img
                 src={validState !== 'none' && !validState ? CheckmarkErrorSVG : validState === 'valid' ? CheckmarkValidSVG : CheckmarkSVG}

@@ -63,18 +63,21 @@ export default function AddAgent() {
         <form onSubmit={handleFormRequest}>
             <div className={addAgentStyles['inputInformation']}>
                 <Input label={"სახელი"}
+                       name={'agent'}
                        value={agentDetails.name}
                        setValue={setAgentName}
                        validator={"მინიმუმ ორი სიმბოლო"}
                        validationType={'MIN2CHARACTERS'}
                        required={true}/>
                 <Input label={"გვარი"}
+                       name={'surname'}
                        value={agentDetails.surname}
                        setValue={setAgentSurname}
                        validator={"მინიმუმ ორი სიმბოლო"}
                        validationType={'MIN2CHARACTERS'}
                        required={true}/>
                 <Input label={"ელ-ფოსტა"}
+                       name={'email'}
                        value={agentDetails.email}
                        setValue={setAgentEmail}
                        validationType={'REDBERRYEMAIL'}
@@ -82,6 +85,7 @@ export default function AddAgent() {
                 <Input label={"ტელეფონის ნომერი"}
                        value={agentDetails.phone}
                        setValue={setAgentPhone}
+                       name={'phone'}
                        validationType={"PHONE"}
                        validator={"მხოლოდ რიცხვები"} required={true}/>
 

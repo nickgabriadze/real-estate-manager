@@ -2,13 +2,14 @@ import AddCircleSVG from "/src-icons/add-round-circle.svg";
 import selectStyles from './styles/select.module.css'
 import {ActionCreatorWithPayload} from "@reduxjs/toolkit";
 import {useAppDispatch} from "../hooks/redux.ts";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import useClickOutside from "../hooks/useClickOutside.ts";
 import {Link} from "react-router-dom";
 
 
-export default function Select({data, value, setValue, loading, label, forCity, forAgent}: {
+export default function Select({data, value, name,  setValue, loading, label, forCity, forAgent}: {
     value: number,
+    name: string,
     forCity?: number,
     forAgent?: boolean
     setValue: ActionCreatorWithPayload<any>,
@@ -19,6 +20,11 @@ export default function Select({data, value, setValue, loading, label, forCity, 
     const dispatch = useAppDispatch()
     const selectedValue = data.find(item => item.id === value) === undefined ? 'აირჩიე' : data.find(item => item.id === value).name
 
+    const sessionStorageValue = Number(sessionStorage.getItem(name))
+
+    useEffect(() => {
+        if(!loading) dispatch(setValue(sessionStorageValue))
+    }, [loading, sessionStorageValue]);
 
     return <div className={selectStyles['selectWrapper']}>
         <h5>{label}</h5>
@@ -44,7 +50,10 @@ export default function Select({data, value, setValue, loading, label, forCity, 
 
                 {data.map((dataEntry) => <p
                     className={selectStyles['dropDownOption']}
-                    onClick={() => dispatch(setValue(parseInt(dataEntry.id)))}
+                    onClick={() => {
+                        dispatch(setValue(parseInt(dataEntry.id)))
+                        sessionStorage.setItem(`${name}`, String(dataEntry.id))
+                    }}
                     key={dataEntry.id}>{dataEntry.name}</p>)}
             </div>}
         </div>

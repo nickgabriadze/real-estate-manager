@@ -15,17 +15,20 @@ export default function HomeDetails() {
         <div className={addListingStyles['homeDetailInputs']}>
             <Input
                 value={price}
+                name={'price'}
                 validationType={'ONLYNUMBERS'}
                 setValue={setPrice}
                 label={'ფასი'} required={true} validator={'მხოლოდ რიცხვები'}/>
             <Input
                 value={area}
+                name={'area'}
                 setValue={setArea}
                 validationType={'ONLYNUMBERS'}
                 label={'ფართობი'} required={true} validator={'მხოლოდ რიცხვები'}/>
             <Input
                 value={bedrooms}
                 setValue={setBedrooms}
+                name={'bedrooms'}
                 validationType={'ONLYNUMBERS'}
                 label={'საძინებლების რაოდენობა'}
                 required={true} validator={'მხოლოდ რიცხვები'}/>

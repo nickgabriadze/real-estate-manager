@@ -27,6 +27,7 @@ export default function AgentDetails() {
             setValue={setAgentId}
             loading={isLoading}
             forAgent={true}
+            name={'agent_id'}
             data={isLoading ? [{name: 'აგენტი', id: -1}] : agents} label={'აირჩიე'}/>
 
     </div>

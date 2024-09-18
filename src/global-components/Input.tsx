@@ -10,17 +10,24 @@ import {useAppDispatch} from "../hooks/redux.ts";
 import {ActionCreatorWithPayload} from "@reduxjs/toolkit";
 
 
-export default function Input({label, value, setValue, validator, required, validationType}: {
+export default function Input({label, value, name, setValue, validator, required, validationType}: {
     label: string;
     value: any,
-    setValue:  ActionCreatorWithPayload<any>,
+    name: string,
+    setValue: ActionCreatorWithPayload<any>,
     validationType: ValidationOptions
     validator: string,
-    required: boolean
+    required: boolean,
 }) {
     const dispatch = useAppDispatch()
     const [validState, setValidState] = useState<false | 'none' | 'valid'>(validate(validationType, value[0]))
-
+    const sessionStorageValue = sessionStorage.getItem(name)
+    useEffect(() => {
+        if (sessionStorageValue) {
+            const valid = validate(validationType, value[0])
+            dispatch(setValue([sessionStorageValue, valid]))
+        }
+    }, [sessionStorageValue]);
 
     useEffect(() => {
         setValidState(validate(validationType, value[0]))
@@ -37,9 +44,10 @@ export default function Input({label, value, setValue, validator, required, vali
                 const validated = validate(validationType, e.target.value)
                 setValidState(validated)
                 dispatch(setValue([e.target.value, validated]))
-                }
+                sessionStorage.setItem(`${name}`, e.target.value)
             }
-           />
+            }
+        />
         {validator && <div>
             <img
                 src={validState !== 'none' && !validState ? CheckmarkErrorSVG : validState === 'valid' ? CheckmarkValidSVG : CheckmarkSVG}

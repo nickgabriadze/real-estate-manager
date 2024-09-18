@@ -5,7 +5,7 @@ import AgentDetails from "./components/AgentDetails.tsx";
 import DealDetails from "./components/DealDetails.tsx";
 import {useAppDispatch, useAppSelector} from "../../hooks/redux.ts";
 import {FormEvent, useState} from "react";
-import setupFormData from "./setupFormData.ts";
+import setupFormData from "./functions/setupFormData.ts";
 import createListing from "../../apis/listing/createListing.tsx";
 import {resetListingInfo} from "../../features/forms/listingFormReducer.ts";
 import addAgentStyles from "../create-agent/addagent.module.css";
@@ -73,7 +73,10 @@ export default function AddListing() {
         </div>}
         <div className={addListingStyles['formButtons']}>
             <Link to={'/'}
-                    onClick={() => dispatch(resetListingInfo({}))}
+                    onClick={() => {
+                        dispatch(resetListingInfo({}))
+                        sessionStorage.clear()
+                    }}
             >გაუქმება
             </Link>
             <button type={'submit'}>დაამატე ლისტინგი</button>

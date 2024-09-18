@@ -24,11 +24,13 @@ export default function LocationDetails() {
             <div className={addListingStyles['detailInputs']}>
                 <Input label={'მისამართი'}
                        value={address}
+                       name={'address'}
                        validationType={'MIN2CHARACTERS'}
                        setValue={setAddress}
                        required={true} validator={'მინიმუმ ორი სიმბოლო'}/>
                 <Input
                     value={zip_code}
+                    name={'zip_code'}
                     setValue={setZipCode}
                     validationType={"ONLYNUMBERS"}
                     label={'საფოსტო ინდექსი'} required={true} validator={'მხოლოდ რიცხვები'}/>
@@ -36,12 +38,14 @@ export default function LocationDetails() {
             <div className={addListingStyles['detailsLocationSelect']}>
                 <Select
                     value={region}
+                    name={'region'}
                     setValue={setRegion}
                     loading={isLoading} data={isLoading ? [{id: -1, name: 'რეგიონი'}] : regions} label={'რეგიონი'}
                 />
 
                 <Select loading={isLoading}
                         value={city}
+                        name={'city'}
                         forCity={region}
                         setValue={setCity}
                         data={isLoading ? [{id: -1, name: 'ქალაქი'}] : cities}
