@@ -7,8 +7,9 @@ import useClickOutside from "../hooks/useClickOutside.ts";
 import {Link} from "react-router-dom";
 
 
-export default function Select({data, value, setValue, loading, label, forAgent}: {
+export default function Select({data, value, setValue, loading, label, forCity, forAgent}: {
     value: number,
+    forCity?: number,
     forAgent?: boolean
     setValue: ActionCreatorWithPayload<any>,
     loading: boolean, data: any[], label: string
@@ -23,7 +24,11 @@ export default function Select({data, value, setValue, loading, label, forAgent}
         <h5>{label}</h5>
 
         <div className={selectStyles['dropDownWrapper']} ref={selectClickOutside}
-             onClick={() => setDropDownOpen(prev => !prev)}>
+             onClick={() => {
+                 if (forCity !== -1) {
+                     setDropDownOpen(prev => !prev)
+                 }
+             }}>
             <div className={`${selectStyles['dropDownMainOption']} ${dropDownOpen && selectStyles['dropDownOpen']}`}
 
             >{loading ? 'აირჩიე' : value === -1 ? 'აირჩიე' : selectedValue}
@@ -31,11 +36,11 @@ export default function Select({data, value, setValue, loading, label, forAgent}
             {dropDownOpen && <div className={selectStyles['dropDownOptions']}
                                   style={data.length > 5 ? {height: '200px'} : {height: 'fit-content'}}
             >
-                {forAgent && <p className={`${selectStyles['dropDownOption']} ${selectStyles['addAgentOption']}`}>
-                    <img  src={AddCircleSVG} width={24} alt={'Add icon'}/>
-                    <Link
+                {forAgent && <Link
                     to={'/add-agent'}
-                >დაამატე აგენტი</Link></p>}
+                    className={`${selectStyles['dropDownOption']} ${selectStyles['addAgentOption']}`}>
+                    <img src={AddCircleSVG} width={24} alt={'Add icon'}/>
+                    <p>დაამატე აგენტი</p></Link>}
 
                 {data.map((dataEntry) => <p
                     className={selectStyles['dropDownOption']}
