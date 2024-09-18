@@ -22,7 +22,8 @@ export default function AddListing() {
         e.preventDefault()
         const allValid = listingForm.address[1] === 'valid' && listingForm.description[1] === 'valid' &&
             listingForm.bedrooms[1] === 'valid' && listingForm.area[1] === 'valid' && listingForm.image[1] === 'valid'
-            && listingForm.price[1] === 'valid' && listingForm.zip_code[1] === 'valid';
+            && listingForm.price[1] === 'valid' && listingForm.zip_code[1] === 'valid'
+                && listingForm.region !== -1 && listingForm.city !== - 1 && listingForm.agent_id !== -1;
 
         if (allValid) {
 
