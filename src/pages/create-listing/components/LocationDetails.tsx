@@ -1,11 +1,10 @@
 import addListingStyles from "../addlisting.module.css";
 import Select from "../../../global-components/Select.tsx";
-import {useEffect} from "react";
 import {useQuery} from "@tanstack/react-query";
 import getRegions from "../../../apis/location/getRegions.ts";
 import getCitiesByRegion from "../../../apis/location/getCitiesByRegion.ts";
 import Input from "../../../global-components/Input.tsx";
-import {useAppDispatch, useAppSelector} from "../../../hooks/redux.ts";
+import {useAppSelector} from "../../../hooks/redux.ts";
 import {setAddress, setCity, setRegion, setZipCode} from "../../../features/forms/listingFormReducer.ts";
 
 export default function LocationDetails() {
@@ -15,16 +14,8 @@ export default function LocationDetails() {
         queryKey: ['getCitiesByRegion', region],
         queryFn: () => getCitiesByRegion(region)
     })
-    const dispatch = useAppDispatch()
     const regions = data?.data ? data?.data : []
     const cities = citiesData.data ? citiesData.data : []
-
-    useEffect(() => {
-        if (!citiesData.isLoading) {
-            dispatch(setCity(cities[0].id))
-        }
-
-    }, [region, citiesData.isLoading]);
 
 
     return (
