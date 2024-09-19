@@ -2,7 +2,6 @@ import {Outlet, useNavigate, useParams} from "react-router-dom";
 import {useQuery} from "@tanstack/react-query";
 import getListing from "../../apis/listing/getListing.ts";
 import RealEstateDetails from "./components/RealEstateDetails.tsx";
-// import OtherListings from "./components/OtherListings.tsx";
 import LeftArrowSVG from '/src-icons/arrow-left.svg'
 import listingPageStyles from './styles/listingpage.module.css';
 import PageNotFound404 from "../../404.tsx";

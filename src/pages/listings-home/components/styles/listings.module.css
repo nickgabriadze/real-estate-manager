@@ -1,9 +1,9 @@
 .listingsPageWrapper{
     width: 80%;
-    margin: auto;
     display: flex;
     flex-direction: column;
     gap: 30px;
+    margin: auto auto 30px;
 }
 
 @media only screen and (max-width: 1500px){
