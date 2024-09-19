@@ -6,7 +6,7 @@ import AreaSVG from '/src-icons/listing/area.svg'
 import ZipCodeSVG from '/src-icons/listing/zipcode.svg'
 import {Link} from "react-router-dom";
 
-export default function Property({home}:{home: Listing}){
+export default function Property({home}: { home: Listing }) {
 
     return <Link to={`/listings/${home.id}`} className={homeListingStyles['homeListingWrapper']}>
         <div className={homeListingStyles['homePicture']}>
@@ -19,7 +19,7 @@ export default function Property({home}:{home: Listing}){
                 <h3>{home.price.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ')} ₾</h3>
                 <div>
                     <img src={LocationSVG} width={20} alt={'Location icon'}/>
-                    <p>{home.city.name}, {home.address}</p>
+                    <p>{home.city.name}, {home.address.length > 20 ? home.address.substring(0, 15).concat('...') : home.address}</p>
                 </div>
             </div>
 
@@ -38,11 +38,8 @@ export default function Property({home}:{home: Listing}){
                     <img src={ZipCodeSVG} width={20} alt={'Zipcode icon'}/>
                     <p>{home.zip_code}</p>
                 </div>
-
             </div>
-
         </div>
-
     </Link>
 
 }

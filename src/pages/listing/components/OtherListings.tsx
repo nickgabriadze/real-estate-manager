@@ -52,7 +52,7 @@ export default function OtherListings({region_id}: { region_id: number }) {
                     }
                 }}
             ><img src={LeftArrowSVG} width={30} alt={'Left arrow icon'}/></button>
-            <div className={similarListingsStyle['list']}>
+            <div className={similarListingsStyle['list']} style={{gridTemplateColumns: `repeat(${incrementor}, minmax(380px, 1fr))`}}>
                 {similarListings.slice(carouselIndex[0], carouselIndex[1]).map(eachListing => <Property
                     key={eachListing.id}
                     home={eachListing}/>)}

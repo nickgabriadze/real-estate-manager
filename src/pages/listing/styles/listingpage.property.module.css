@@ -60,7 +60,7 @@
 
             & h1 {
                 font-weight: 700;
-                font-size: 48px;
+                font-size: clamp(32px, 2.5vw, 48px);
                 line-height: 57px;
             }
 
@@ -89,7 +89,7 @@
                     align-items: center;
 
                     & p {
-                        font-size: clamp(16px, 2vw, 24px);
+                        font-size: clamp(16px, 1.5vw, 24px);
                         line-height: 28px;
                         font-weight: 400;
                     }
@@ -97,6 +97,9 @@
 
             }
 
+            & .description{
+                width: 100%
+            }
             .description p {
                 font-size: 16px;
                 line-height: 26px;

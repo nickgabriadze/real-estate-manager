@@ -14,6 +14,8 @@ export default function RealEstateDetails({property}: { property: Listing }) {
     const day = formattedDate.getDay() > 9 ? `0${formattedDate.getDate()}` : `${formattedDate.getDate()}`
     const year = formattedDate.getFullYear()
 
+    const propertyDescription = property.description.length > 255 ? property.description.slice(0, 255).toString().concat('...') : property.description
+
     return <div className={propertyStyles['propertyWrapper']}>
 
         <div className={propertyStyles['imageWrapper']}>
@@ -48,7 +50,7 @@ export default function RealEstateDetails({property}: { property: Listing }) {
                         <p>საფოსტო ინდექსი {property.zip_code}</p>
                     </div>
                 </div>
-                <div className={propertyStyles['description']}><p>{property.description}</p></div>
+                <div className={propertyStyles['description']}><p>{propertyDescription}</p></div>
 
             </div>
             <div className={propertyStyles['agentSection']}>

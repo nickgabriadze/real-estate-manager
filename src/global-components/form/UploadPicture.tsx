@@ -38,6 +38,7 @@ export default function UploadPicture({label, value, setValue, required}: {
                style={value[1] === 'none' || value[1] === 'invalidForm' ? {border: '2px dotted var(--accent-color)'} : {}}
         >
             {value[1] !== 'valid' && <input type={'file'} id={'pictureUpload'}
+                                            autoComplete={'off'}
                                             accept={"image/png, image/jpg, image/jpeg"}
                                             onChange={(e) => {
                                                 if (e.target.files !== null) {
