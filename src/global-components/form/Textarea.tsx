@@ -21,11 +21,10 @@ export default function Textarea({label, validationType, value, setValue, valida
     const [validState, setValidState] = useState<Validation>(validate(validationType, value[0]))
     const dispatch = useAppDispatch()
     const sessionStorageValue = sessionStorage.getItem('description')
-
     useEffect(() => {
         if (sessionStorageValue) {
-            const valid = validate(validationType, value[0])
-            dispatch(setValue([sessionStorageValue, valid]))
+            const valid = validate(validationType, String(sessionStorageValue))
+            dispatch(setValue([String(sessionStorageValue), valid]))
         }
     }, [sessionStorageValue]);
     useEffect(() => {
