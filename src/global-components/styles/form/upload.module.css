@@ -4,7 +4,7 @@
     flex-direction: column;
     width: 100%;
 
-    & label{
+    & p {
         font-weight: 500;
         color: #021526;
         font-size: 14px;
@@ -39,6 +39,7 @@
             right: -10px;
             width: 30px;
             height: 30px;
+
             & img {
                 width: 100%;
                 height: 100%;

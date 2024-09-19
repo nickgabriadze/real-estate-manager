@@ -32,23 +32,23 @@ export default function UploadPicture({label, value, setValue, required}: {
     }
 
     return <div className={uploadStyles['uploadWrapper']}>
-        <label>{label} {required ? "*" : ''}</label>
+        <p>{label} {required ? "*" : ''}</p>
 
         <label htmlFor={'pictureUpload'} className={uploadStyles['uploadContainer']}
                style={value[1] === 'none' || value[1] === 'invalidForm' ? {border: '2px dotted var(--accent-color)'} : {}}
         >
             {value[1] !== 'valid' && <input type={'file'} id={'pictureUpload'}
-                                          accept={"image/png, image/jpg, image/jpeg"}
-                                          onChange={(e) => {
-                                              if (e.target.files !== null) {
-                                                  dispatch(setValue([(e.target.files[0]), 'valid']))
-                                              }
-                                          }}/>}
+                                            accept={"image/png, image/jpg, image/jpeg"}
+                                            onChange={(e) => {
+                                                if (e.target.files !== null) {
+                                                    dispatch(setValue([(e.target.files[0]), 'valid']))
+                                                }
+                                            }}/>}
             {value[1] === 'valid' && value[0] ? <div className={uploadStyles['uploadedImage']}>
-                    <img src={value[1] === 'valid' ? URL.createObjectURL(value[0]): ''} alt={'Uploaded image'} draggable={false}/>
+                    <img src={value[1] === 'valid' ? URL.createObjectURL(value[0]) : ''} alt={'Uploaded image'}
+                         draggable={false}/>
                     <button
                         onClick={() => {
-
                             handleDeleteImage()
                         }}
                         type={'button'}
@@ -60,6 +60,7 @@ export default function UploadPicture({label, value, setValue, required}: {
                 </div> :
                 <img src={AddCircleSVG} alt={'Plus in a circle icon'} width={32}/>}
         </label>
-        {value[1] === 'none' && <p style={{color: 'var(--accent-color)'}}>ფაილის ზომა არ უნდა აღემატებოდეს 1 მეგაბაიტს</p>}
+        {value[1] === 'none' &&
+            <p style={{color: 'var(--accent-color)'}}>ფაილის ზომა არ უნდა აღემატებოდეს 1 მეგაბაიტს</p>}
     </div>
 }
