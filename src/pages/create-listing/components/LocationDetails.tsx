@@ -1,9 +1,9 @@
 import addListingStyles from "../addlisting.module.css";
-import Select from "../../../global-components/Select.tsx";
+import Select from "../../../global-components/form/Select.tsx";
 import {useQuery} from "@tanstack/react-query";
 import getRegions from "../../../apis/location/getRegions.ts";
 import getCitiesByRegion from "../../../apis/location/getCitiesByRegion.ts";
-import Input from "../../../global-components/Input.tsx";
+import Input from "../../../global-components/form/Input.tsx";
 import {useAppSelector} from "../../../hooks/redux.ts";
 import {setAddress, setCity, setRegion, setZipCode} from "../../../features/forms/listingFormReducer.ts";
 

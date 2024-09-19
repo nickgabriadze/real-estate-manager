@@ -1,12 +1,12 @@
-import inputStyles from './styles/input.module.css'
-import commonStyles from './styles/common.module.css'
+import inputStyles from '../styles/form/input.module.css'
+import commonStyles from '../styles/form/common.module.css'
 import CheckmarkSVG from '/src-icons/checkmark.svg'
 import CheckmarkErrorSVG from '/src-icons/checkmark-error.svg'
 import CheckmarkValidSVG from '/src-icons/checkmark-valid.svg'
-import {Validation, ValidationOptions} from "../types/validationOptions.ts";
+import {Validation, ValidationOptions} from "../../types/validationOptions.ts";
 import {useEffect, useState} from "react";
 import {validate} from "./validate.ts";
-import {useAppDispatch} from "../hooks/redux.ts";
+import {useAppDispatch} from "../../hooks/redux.ts";
 import {ActionCreatorWithPayload} from "@reduxjs/toolkit";
 
 

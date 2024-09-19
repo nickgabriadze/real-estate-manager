@@ -1,7 +1,7 @@
 import addListingStyles from "../addlisting.module.css";
 import {useQuery} from "@tanstack/react-query";
 import getAgents from "../../../apis/agent/getAgents.ts";
-import Select from "../../../global-components/Select.tsx";
+import Select from "../../../global-components/form/Select.tsx";
 import {useAppSelector} from "../../../hooks/redux.ts";
 import {setAgentId} from "../../../features/forms/listingFormReducer.ts";
 

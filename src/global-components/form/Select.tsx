@@ -1,12 +1,12 @@
 import AddCircleSVG from "/src-icons/add-round-circle.svg";
-import selectStyles from './styles/select.module.css'
+import selectStyles from '../styles/form/select.module.css'
 import {ActionCreatorWithPayload} from "@reduxjs/toolkit";
-import {useAppDispatch} from "../hooks/redux.ts";
+import {useAppDispatch} from "../../hooks/redux.ts";
 import {useEffect, useState} from "react";
-import useClickOutside from "../hooks/useClickOutside.ts";
+import useClickOutside from "../../hooks/useClickOutside.ts";
 import {Link} from "react-router-dom";
-import commonStyles from "./styles/common.module.css";
-import {Validation} from "../types/validationOptions.ts";
+import commonStyles from "../styles/form/common.module.css";
+import {Validation} from "../../types/validationOptions.ts";
 
 
 export default function Select({data, value, name, setValue, loading, label, forCity, forAgent}: {

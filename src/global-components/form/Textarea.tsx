@@ -1,9 +1,9 @@
-import textareaStyles from './styles/textarea.module.css'
-import commonStyles from "./styles/common.module.css";
+import textareaStyles from '../styles/form/textarea.module.css'
+import commonStyles from "../styles/form/common.module.css";
 import CheckmarkSVG from "/src-icons/checkmark.svg";
-import {useAppDispatch} from "../hooks/redux.ts";
+import {useAppDispatch} from "../../hooks/redux.ts";
 import {ActionCreatorWithPayload} from "@reduxjs/toolkit";
-import {Validation, ValidationOptions} from "../types/validationOptions.ts";
+import {Validation, ValidationOptions} from "../../types/validationOptions.ts";
 import {validate} from "./validate.ts";
 import {useEffect, useState} from "react";
 import CheckmarkErrorSVG from "/src-icons/checkmark-error.svg";

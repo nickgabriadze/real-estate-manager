@@ -24,7 +24,6 @@ export default function OtherListings({region_id}: { region_id: number }) {
         queryFn: () => getListings(),
         enabled: listings.length === 0
     })
-    console.log(carouselIndex)
     useEffect(() => {
         if (listings.length === 0 && !isLoading && data?.data) {
             dispatch(addListingsBulk(data?.data))

@@ -1,9 +1,9 @@
-import uploadStyles from './styles/upload.module.css'
+import uploadStyles from '../styles/form/upload.module.css'
 import AddCircleSVG from '/src-icons/add-circle.svg'
 import {useEffect} from "react";
 import DeleteImageSVG from '/src-icons/delete-bin.svg'
 import {ActionCreatorWithPayload} from "@reduxjs/toolkit";
-import {useAppDispatch} from "../hooks/redux.ts";
+import {useAppDispatch} from "../../hooks/redux.ts";
 
 export default function UploadPicture({label, value, setValue, required}: {
     label: string,
