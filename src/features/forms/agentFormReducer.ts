@@ -35,6 +35,22 @@ const agentFormSlice = createSlice({
         setAgentAvatar: (state, action: { payload: [string, Validation] }) => {
             return {...state, avatar: action.payload}
         },
+        checkForInvalidInputsAgent: (state, _) => {
+            const values = Object.values(state)
+            const keys = Object.keys(state)
+            let newState = {...state}
+            for (let i = 0; i < keys.length; i++) {
+                const currentValue = values[i]
+                if (Array.isArray(currentValue)) {
+                    const notValid = currentValue[1] !== 'valid'
+                    if (notValid) {
+                        newState[`${keys[i]}`] = [currentValue[0], 'invalidForm']
+                    }
+
+                }
+            }
+            return {...newState}
+        },
 
         resetAgentInfo: (_, __) => {
             return {
@@ -51,6 +67,6 @@ export const {
     setAgentName, setAgentAvatar,
     setAgentSurname,
     setAgentEmail, setAgentPhone,
-    resetAgentInfo
+    resetAgentInfo, checkForInvalidInputsAgent
 } = agentFormSlice.actions;
 export default agentFormSlice.reducer
