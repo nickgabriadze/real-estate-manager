@@ -25,8 +25,9 @@
         }
 
         & .publishedDate {
-            font-size: 14px;
+            font-size: 16px;
             color: #808A93;
+            line-height: 19px;
             display: flex;
             gap: 10px;
             align-items: center;
@@ -58,7 +59,9 @@
             width: 100%;
 
             & h1 {
-                font-weight: bold
+                font-weight: 700;
+                font-size: 48px;
+                line-height: 57px;
             }
 
             & p {
@@ -72,8 +75,13 @@
                 flex-direction: column;
                 align-items: flex-start;
                 justify-content: start;
-                gap: 5px;
+                gap: 16px;
 
+
+                & sup {
+                    font-size: 16px;
+                    top: 0;
+                }
 
                 & div {
                     display: flex;
@@ -81,14 +89,17 @@
                     align-items: center;
 
                     & p {
-                        font-size: clamp(12px, 1vw, 16px);
+                        font-size: clamp(16px, 2vw, 24px);
+                        line-height: 28px;
+                        font-weight: 400;
                     }
                 }
 
             }
 
-            .description {
-                font-size: 12px;
+            .description p {
+                font-size: 16px;
+                line-height: 26px;
             }
         }
 

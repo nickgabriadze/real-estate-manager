@@ -19,7 +19,7 @@ export default function RealEstateDetails({property}: { property: Listing }) {
         <div className={propertyStyles['imageWrapper']}>
             <div className={propertyStyles['image']}>
                 <img src={property.image} alt={'Property image'}/>
-                <p className={'isRental'}>{property.is_rental === 1 ? 'ქირავდება' : 'იყიდება'}</p>
+                <p className={'isRentalListingPage'}>{property.is_rental === 1 ? 'ქირავდება' : 'იყიდება'}</p>
             </div>
 
             <p className={propertyStyles['publishedDate']}>გამოქვეყნების თარიღი <span>{`${day}/${month}/${year}`}</span>

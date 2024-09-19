@@ -24,7 +24,7 @@
             gap: 5px;
         }
 
-        & h5{
+        & h5 {
             color: #021526;
             font-size: 16px;
             font-weight: 400;
@@ -33,6 +33,7 @@
         & p {
             font-weight: 400;
             color: #808A93;
+            font-size: 14px;
         }
     }
 
@@ -48,6 +49,7 @@
 
             & p {
                 color: #808A93;
+                font-size: 14px;
                 font-weight: 400;
             }
         }
