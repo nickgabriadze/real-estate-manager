@@ -97,9 +97,10 @@
 
             }
 
-            & .description{
-                width: 100%
+            & .description {
+                width: 100%;
             }
+
             .description p {
                 font-size: 16px;
                 line-height: 26px;
