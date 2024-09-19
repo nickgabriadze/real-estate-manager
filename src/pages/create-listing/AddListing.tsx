@@ -50,7 +50,9 @@ export default function AddListing() {
     }
 
 
-    return (<form className={addListingStyles['addListingWrapper']} onSubmit={handleListingForm}>
+    return (<form
+        name={'Listing Form'}
+        className={addListingStyles['addListingWrapper']} onSubmit={handleListingForm}>
         <h1>ლისტინგის დამატება</h1>
 
         <div className={addListingStyles['listingFormInformationWrapper']}>
