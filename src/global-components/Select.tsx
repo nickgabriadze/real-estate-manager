@@ -5,10 +5,12 @@ import {useAppDispatch} from "../hooks/redux.ts";
 import {useEffect, useState} from "react";
 import useClickOutside from "../hooks/useClickOutside.ts";
 import {Link} from "react-router-dom";
+import commonStyles from "./styles/common.module.css";
+import {Validation} from "../types/validationOptions.ts";
 
 
-export default function Select({data, value, name,  setValue, loading, label, forCity, forAgent}: {
-    value: number,
+export default function Select({data, value, name, setValue, loading, label, forCity, forAgent}: {
+    value: [number, Validation],
     name: string,
     forCity?: number,
     forAgent?: boolean
@@ -18,12 +20,12 @@ export default function Select({data, value, name,  setValue, loading, label, fo
     const [dropDownOpen, setDropDownOpen] = useState<boolean>(false)
     const selectClickOutside = useClickOutside(() => setDropDownOpen(false))
     const dispatch = useAppDispatch()
-    const selectedValue = data.find(item => item.id === value) === undefined ? 'აირჩიე' : data.find(item => item.id === value).name
+    const selectedValue = data.find(item => item.id === value[0]) === undefined ? 'აირჩიე' : data.find(item => item.id === value[0]).name
 
-    const sessionStorageValue = Number(sessionStorage.getItem(name))
+    const sessionStorageValue = sessionStorage.getItem(name)
 
     useEffect(() => {
-        if(!loading) dispatch(setValue(sessionStorageValue))
+        if (!loading && sessionStorageValue) dispatch(setValue([Number(sessionStorageValue), Number(sessionStorageValue) === -1 ? false : 'valid']))
     }, [loading, sessionStorageValue]);
 
     return <div className={selectStyles['selectWrapper']}>
@@ -35,9 +37,9 @@ export default function Select({data, value, name,  setValue, loading, label, fo
                      setDropDownOpen(prev => !prev)
                  }
              }}>
-            <div className={`${selectStyles['dropDownMainOption']} ${dropDownOpen && selectStyles['dropDownOpen']}`}
+            <div className={`${selectStyles['dropDownMainOption']} ${value[1] === 'invalidForm' && commonStyles['invalid']} ${dropDownOpen && selectStyles['dropDownOpen']}`}
 
-            >{loading ? 'აირჩიე' : value === -1 ? 'აირჩიე' : selectedValue}
+            >{loading ? 'აირჩიე' : value[0] === -1 ? 'აირჩიე' : selectedValue}
             </div>
             {dropDownOpen && <div className={selectStyles['dropDownOptions']}
                                   style={data.length > 5 ? {height: '200px'} : {height: 'fit-content'}}
@@ -51,7 +53,7 @@ export default function Select({data, value, name,  setValue, loading, label, fo
                 {data.map((dataEntry) => <p
                     className={selectStyles['dropDownOption']}
                     onClick={() => {
-                        dispatch(setValue(parseInt(dataEntry.id)))
+                        dispatch(setValue([parseInt(dataEntry.id), 'valid']))
                         sessionStorage.setItem(`${name}`, String(dataEntry.id))
                     }}
                     key={dataEntry.id}>{dataEntry.name}</p>)}

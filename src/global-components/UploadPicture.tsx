@@ -35,7 +35,7 @@ export default function UploadPicture({label, value, setValue, required}: {
         <label>{label} {required ? "*" : ''}</label>
 
         <label htmlFor={'pictureUpload'} className={uploadStyles['uploadContainer']}
-               style={value[1] === 'none' ? {border: '2px dotted var(--accent-color)'} : {}}
+               style={value[1] === 'none' || value[1] === 'invalidForm' ? {border: '2px dotted var(--accent-color)'} : {}}
         >
             {value[1] !== 'valid' && <input type={'file'} id={'pictureUpload'}
                                           accept={"image/png, image/jpg, image/jpeg"}

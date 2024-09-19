@@ -3,7 +3,7 @@ import commonStyles from './styles/common.module.css'
 import CheckmarkSVG from '/src-icons/checkmark.svg'
 import CheckmarkErrorSVG from '/src-icons/checkmark-error.svg'
 import CheckmarkValidSVG from '/src-icons/checkmark-valid.svg'
-import {ValidationOptions} from "../types/validationOptions.ts";
+import {Validation, ValidationOptions} from "../types/validationOptions.ts";
 import {useEffect, useState} from "react";
 import {validate} from "./validate.ts";
 import {useAppDispatch} from "../hooks/redux.ts";
@@ -21,13 +21,13 @@ export default function Input({label, value, name, setValue, validator, block, r
     block: boolean
 }) {
     const dispatch = useAppDispatch()
-    const [validState, setValidState] = useState<false | 'none' | 'valid'>(validate(validationType, value[0]))
+    const [validState, setValidState] = useState<Validation>(validate(validationType, value[0]))
     const sessionStorageValue = sessionStorage.getItem(name)
     useEffect(() => {
         if (!block) {
             if (sessionStorageValue) {
-                const valid = validate(validationType, value[0])
-                dispatch(setValue([sessionStorageValue, valid]))
+                const valid = validate(validationType, String(sessionStorageValue))
+                dispatch(setValue([String(sessionStorageValue), valid]))
             }
         }
     }, [block, sessionStorageValue]);
@@ -42,7 +42,7 @@ export default function Input({label, value, name, setValue, validator, block, r
             autoComplete={'false'}
             id={label} type={'text'}
             value={value[0]}
-            className={`${validState !== 'none' && !validState ? commonStyles['invalid'] : validState === 'valid' && commonStyles['valid']}`}
+            className={`${(validState !== 'none' && !validState) || value[1] === 'invalidForm' ? commonStyles['invalid'] : validState === 'valid' && commonStyles['valid']}`}
             onChange={(e) => {
                 const validated = validate(validationType, e.target.value)
                 setValidState(validated)
@@ -54,10 +54,10 @@ export default function Input({label, value, name, setValue, validator, block, r
         />
         {validator && <div>
             <img
-                src={validState !== 'none' && !validState ? CheckmarkErrorSVG : validState === 'valid' ? CheckmarkValidSVG : CheckmarkSVG}
+                src={(validState !== 'none' && !validState) || value[1] === 'invalidForm'? CheckmarkErrorSVG : validState === 'valid' ? CheckmarkValidSVG : CheckmarkSVG}
                 alt={'Checkmark icon'} width={12}/>
             <p
-                className={`${validState !== 'none' && !validState ? commonStyles['invalidColor'] : validState === 'valid' && commonStyles['validColor']}`}>{validator}</p>
+                className={`${(validState !== 'none' && !validState) || value[1] === 'invalidForm' ? commonStyles['invalidColor'] : validState === 'valid' && commonStyles['validColor']}`}>{validator}</p>
         </div>}
     </div>
 }

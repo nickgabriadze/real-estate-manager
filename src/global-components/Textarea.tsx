@@ -36,7 +36,7 @@ export default function Textarea({label, validationType, value, setValue, valida
         <label>{label} {required ? "*" : ''}</label>
         <textarea
             id={'description'}
-            className={`${validState !== 'none' && !validState ? commonStyles['invalid'] : validState === 'valid' && commonStyles['valid']}`}
+            className={`${(validState !== 'none' && !validState) || value[1] === 'invalidForm' ? commonStyles['invalid'] : validState === 'valid' && commonStyles['valid']}`}
             value={value[0]}
             onChange={(e) => {
                 const valid = validate(validationType, String(e.target.value))
@@ -47,10 +47,10 @@ export default function Textarea({label, validationType, value, setValue, valida
         />
         {validator && <div>
             <img
-                src={validState !== 'none' && !validState ? CheckmarkErrorSVG : validState === 'valid' ? CheckmarkValidSVG : CheckmarkSVG}
+                src={(validState !== 'none' && !validState) || value[1] === 'invalidForm'  ? CheckmarkErrorSVG : validState === 'valid' ? CheckmarkValidSVG : CheckmarkSVG}
                 alt={'Checkmark icon'} width={12}/>
             <p
-                className={`${validState !== 'none' && !validState ? commonStyles['invalidColor'] : validState === 'valid' && commonStyles['validColor']}`}>{validator}</p>
+                className={`${(validState !== 'none' && !validState) || value[1] === 'invalidForm'  ? commonStyles['invalidColor'] : validState === 'valid' && commonStyles['validColor']}`}>{validator}</p>
         </div>}
 
     </div>
