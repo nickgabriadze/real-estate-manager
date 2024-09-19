@@ -7,7 +7,7 @@ import {useAppDispatch, useAppSelector} from "../../hooks/redux.ts";
 import {FormEvent, useState} from "react";
 import setupFormData from "./functions/setupFormData.ts";
 import createListing from "../../apis/listing/createListing.tsx";
-import {resetListingInfo} from "../../features/forms/listingFormReducer.ts";
+import {checkForInvalidInputs, resetListingInfo} from "../../features/forms/listingFormReducer.ts";
 import addAgentStyles from "../create-agent/addagent.module.css";
 import {Link} from "react-router-dom";
 
@@ -23,7 +23,8 @@ export default function AddListing() {
         const allValid = listingForm.address[1] === 'valid' && listingForm.description[1] === 'valid' &&
             listingForm.bedrooms[1] === 'valid' && listingForm.area[1] === 'valid' && listingForm.image[1] === 'valid'
             && listingForm.price[1] === 'valid' && listingForm.zip_code[1] === 'valid'
-                && listingForm.region !== -1 && listingForm.city !== - 1 && listingForm.agent_id !== -1;
+                && listingForm.region[0] !== -1 && listingForm.city[0] !== - 1 && listingForm.agent_id[0] !== -1;
+        dispatch(checkForInvalidInputs({}))
 
         if (allValid) {
 

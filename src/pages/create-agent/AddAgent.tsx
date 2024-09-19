@@ -6,6 +6,7 @@ import useClickOutside from "../../hooks/useClickOutside.ts";
 import {useNavigate} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../../hooks/redux.ts";
 import {
+    checkForInvalidInputsAgent,
     resetAgentInfo,
     setAgentAvatar,
     setAgentEmail,
@@ -22,6 +23,7 @@ export default function AddAgent() {
     const navigate = useNavigate();
     const handleClickOutside = () => {
         navigate(-1)
+        dispatch(resetAgentInfo({}))
     }
 
     const dispatch = useAppDispatch()
@@ -35,7 +37,7 @@ export default function AddAgent() {
         const allValid = agentDetails.name[1] === 'valid' && agentDetails.surname[1] === 'valid'
             && agentDetails.phone[1] === 'valid' && agentDetails.avatar[1] === 'valid' &&
             agentDetails.email[1] === 'valid'
-
+        dispatch(checkForInvalidInputsAgent({}))
         if (allValid && !loading) {
             setLoading(true)
             const formData = setupAgentFormData(agentDetails)
