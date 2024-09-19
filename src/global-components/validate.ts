@@ -1,6 +1,6 @@
 import {ValidationOptions} from "../types/validationOptions.ts";
 
-export function validate(validation: ValidationOptions, value: any) {
+export function validate(validation: ValidationOptions, value: string) {
     if (value.trim().length === 0) {
         return 'none';
     }
