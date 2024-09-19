@@ -66,14 +66,18 @@ export default function RegionFilter({visible, regionsData, isLoading, params}: 
             {visible.status && regionsData && !isLoading &&
                 <div className={filterOptionsStyles['regions']}>
                     <h3>რეგიონის მიხედვით</h3>
-                    <div className={filterOptionsStyles['mappedRegions']}>{regionsData.map((region: Region) => <div
+                    <div className={filterOptionsStyles['mappedRegions']}>{regionsData.map((region: Region) => <button
                         key={region.id}
+                        onClick={() => handleRegion(region.id, region.name)}
                         className={filterOptionsStyles['eachRegion']}>
+
                         <input type={'checkbox'}
+                               readOnly={true}
+                               name={'Region input field'}
                                checked={filterRegionIDs.map(r => r.id).includes(region.id)}
-                               onChange={() => handleRegion(region.id, region.name)}/>
+                               />
                         <p>{region.name}</p>
-                    </div>)}
+                    </button>)}
                     </div>
                     <div>
                         <button className={filterStyles['dropdownSelectButton']}

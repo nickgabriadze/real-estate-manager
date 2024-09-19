@@ -66,9 +66,11 @@ button:hover, a:hover {
 input[type='checkbox'] {
     width: 20px;
     height: 20px;
-    border-radius: 2px;
     accent-color: #45A849;
-    border: 1px solid var(--border-color);
+}
+
+input[type='checkbox']:checked {
+    border: none;
 }
 
 input[type='radio'] {
