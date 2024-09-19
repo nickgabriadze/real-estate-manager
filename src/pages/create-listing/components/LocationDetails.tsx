@@ -12,17 +12,17 @@ export default function LocationDetails() {
     const {data, isLoading} = useQuery({queryKey: ['regions'], queryFn: getRegions})
     const citiesData = useQuery({
         queryKey: ['getCitiesByRegion', region],
-        queryFn: () => getCitiesByRegion(region)
+        queryFn: () => getCitiesByRegion(region[0])
     })
     const regions = data?.data ? data?.data : []
     const cities = citiesData.data ? citiesData.data : []
-
 
     return (
         <div className={addListingStyles['location']}>
             <h3>მდებარეობა</h3>
             <div className={addListingStyles['detailInputs']}>
                 <Input label={'მისამართი'}
+                       block={false}
                        value={address}
                        name={'address'}
                        validationType={'MIN2CHARACTERS'}
@@ -30,6 +30,7 @@ export default function LocationDetails() {
                        required={true} validator={'მინიმუმ ორი სიმბოლო'}/>
                 <Input
                     value={zip_code}
+                    block={false}
                     name={'zip_code'}
                     setValue={setZipCode}
                     validationType={"ONLYNUMBERS"}
@@ -46,7 +47,7 @@ export default function LocationDetails() {
                 <Select loading={isLoading}
                         value={city}
                         name={'city'}
-                        forCity={region}
+                        forCity={region[0]}
                         setValue={setCity}
                         data={isLoading ? [{id: -1, name: 'ქალაქი'}] : cities}
                         label={'ქალაქი'}/>
