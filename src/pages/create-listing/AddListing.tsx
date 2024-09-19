@@ -34,6 +34,7 @@ export default function AddListing() {
 
             if (request.status === 201) {
                 setListingSuccess(true)
+                sessionStorage.clear()
                 dispatch(resetListingInfo({}))
                 setLoading(false)
             } else {
