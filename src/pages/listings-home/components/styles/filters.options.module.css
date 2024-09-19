@@ -11,6 +11,10 @@
         color: #021526;
         font-weight: 500;
     }
+
+    & p {
+        color: #021526
+    }
 }
 
 
@@ -33,25 +37,22 @@
             grid-template-columns: repeat(3, 200px);
             gap: 12px;
 
-
             & input {
                 cursor: pointer;
             }
 
             & .eachRegion {
                 display: flex;
-                gap: 5px;
+                gap: 8px;
                 cursor: pointer;
                 filter: brightness(100%);
                 color: #021526;
+
                 align-items: center;
-
+                justify-content: start;
             }
 
-            & div /* button wrapper to let it float on the right side of the parent element */
-            {
-                width: 100%;
-            }
+
         }
     }
 }

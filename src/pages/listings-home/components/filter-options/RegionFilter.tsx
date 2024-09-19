@@ -8,6 +8,7 @@ import useClickOutside from "../../../../hooks/useClickOutside.ts";
 import {useAppDispatch, useAppSelector} from "../../../../hooks/redux.ts";
 import {addRegionFilters, removeRegionFilters} from "../../../../features/filters/filterReducer.ts";
 import {Region, Regions} from "../../../../types/regions.ts";
+import CheckBox from "../../../../global-components/form/CheckBox.tsx";
 
 
 export default function RegionFilter({visible, regionsData, isLoading, params}: {
@@ -70,12 +71,8 @@ export default function RegionFilter({visible, regionsData, isLoading, params}: 
                         key={region.id}
                         onClick={() => handleRegion(region.id, region.name)}
                         className={filterOptionsStyles['eachRegion']}>
+                        <CheckBox checked={filterRegionIDs.map(r => r.id).includes(region.id)} />
 
-                        <input type={'checkbox'}
-                               readOnly={true}
-                               name={'Region input field'}
-                               checked={filterRegionIDs.map(r => r.id).includes(region.id)}
-                               />
                         <p>{region.name}</p>
                     </button>)}
                     </div>

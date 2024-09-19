@@ -1,0 +1,29 @@
+.notChecked {
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+    border: 1px solid #DBDBDB;
+    transition: all 300ms linear;
+}
+
+.notChecked:hover {
+    border: 1px solid #8a8a8a;
+}
+
+.checked {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & img {
+        width: 100%;
+        height: 100%;
+        border-radius: 2px;
+    }
+
+    & img:hover {
+        filter: brightness(90%);
+    }
+}

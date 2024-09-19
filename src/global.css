@@ -63,15 +63,6 @@ button:hover, a:hover {
     filter: brightness(90%);
 }
 
-input[type='checkbox'] {
-    width: 20px;
-    height: 20px;
-    accent-color: #45A849;
-}
-
-input[type='checkbox']:checked {
-    border: none;
-}
 
 input[type='radio'] {
     width: 17px;
