@@ -1,0 +1,94 @@
+.loadingPropertySkeletonWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 14px;
+    box-shadow: 3px 2px 12px 2px rgba(0, 0, 0, 0.08);
+
+    & .imageWrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 10px;
+
+        & .rentalSkeleton, .imageSkeleton {
+            box-shadow: 3px 2px 12px 2px rgba(0, 0, 0, 0.08);
+        }
+        & .rentalSkeleton {
+            position: absolute;
+            width: 90px;
+            height: 30px;
+            top: 20px;
+            left: 20px;
+            border-radius: 15px;
+
+
+            animation: grayShift 3s ease infinite;
+        }
+
+        & .imageSkeleton {
+            width: 95%;
+            animation: grayShift 2s ease infinite;
+            height: 300px;
+            border-radius: 14px;
+            display: flex;
+
+        }
+    }
+
+    & .detailsWrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 22px 25px 22px 25px;
+
+        & .priceSkeleton, .locationSkeleton{
+            box-shadow: 3px 2px 12px 2px rgba(0, 0, 0, 0.08);
+
+        }
+
+        & .priceSkeleton {
+            width: 300px;
+            height: 40px;
+            border-radius: 14px;
+            animation: grayShift 4s ease infinite;
+        }
+
+        & .locationSkeleton {
+            width: 300px;
+            height: 20px;
+            border-radius: 14px;
+            animation: grayShift 3s ease infinite;
+
+        }
+
+        & .detailsSkeleton {
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+
+            & div {
+                width: 60px;
+                height: 20px;
+                border-radius: 12px;
+                animation: grayShift 2s ease infinite;
+                box-shadow: 3px 2px 12px 2px rgba(0, 0, 0, 0.08);
+
+
+            }
+        }
+    }
+}
+
+@keyframes grayShift {
+    0% {
+        background-color: rgba(189, 189, 189, 0.49); /* Light Gray */
+    }
+    50% {
+        background-color: rgba(122, 122, 122, 0.51); /* Mid Gray */
+    }
+    100% {
+        background-color: rgba(189, 189, 189, 0.49); /* Light Gray */
+    }
+}
