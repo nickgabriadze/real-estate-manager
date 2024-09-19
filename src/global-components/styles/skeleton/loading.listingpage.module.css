@@ -1,0 +1,218 @@
+@import '../../../global.css';
+
+.imageSkeleton, .rentalSkeleton, .dateSkeleton, .priceSkeleton, .smallDetailsSkeleton div,
+.descriptionSkeleton div, .agentContactInfoSkeleton, .deleteButtonSkeleton {
+    box-shadow: 3px 2px 12px 2px rgba(0, 0, 0, 0.08);
+    animation: grayShift 2s ease infinite;
+}
+
+.listingPageSkeletonWrapper {
+    display: flex;
+    gap: 50px;
+    width: 100%;
+
+
+    & .imageSkeleton {
+        width: 100%;
+        height: 30vw;
+        border-radius: 14px 14px 0 0;
+    }
+
+    & .listingPageImageWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 10px;
+        width: 55%;
+        position: relative;
+
+
+    }
+
+    & .rentalSkeleton {
+        position: absolute;
+        width: 120px;
+        height: 25px;
+        top: 30px;
+        left: 30px;
+        border-radius: 12px;
+    }
+
+
+    & .dateSkeleton {
+        width: 150px;
+        height: 15px;
+        border-radius: 8px;
+    }
+
+    .detailsSkeletonWrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 45px;
+        padding: 30px 0 0 0;
+        width: 50%;
+        align-items: flex-start;
+
+        & .priceSkeleton {
+            height: 30px;
+            width: 50%;
+            border-radius: 12px;
+        }
+
+        & .smallDetailsSkeleton {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            width: 100%;
+
+            & div {
+                width: 30%;
+                height: 20px;
+                border-radius: 8px;
+
+            }
+        }
+
+        & .descriptionSkeleton {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 80px);
+            justify-content: flex-start;
+
+            align-items: flex-start;
+            gap: 10px;
+
+            & div {
+                border-radius: 12px;
+                height: 8px;
+            }
+
+        }
+
+        & .agentSkeletonWrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px;
+            width: 90%;
+            border-radius: 8px;
+            box-shadow: 3px 2px 12px 2px rgba(0, 0, 0, 0.08);
+
+
+            & .agentCardInfoSkeleton {
+                display: flex;
+                gap: 20px;
+                align-items: center;
+                width: 100%;
+
+
+                & .agentPictureSkeleton, & .agent div {
+                    box-shadow: 3px 2px 12px 2px rgba(0, 0, 0, 0.08);
+                    animation: grayShift 3s ease infinite;
+
+                }
+
+                & .agentPictureSkeleton {
+                    width: 70px;
+                    height: 70px;
+                    border-radius: 100%;
+                }
+
+                & .agent {
+                    display: flex;
+                    gap: 10px;
+                    align-items: flex-start;
+                    justify-content: start;
+                    flex-direction: column;
+
+                    & div {
+                        border-radius: 8px;
+                    }
+
+                    & div:nth-child(1) {
+                        width: 120px;
+                        height: 20px;
+                    }
+
+                    & div:nth-child(2) {
+                        height: 10px;
+                        width: 60px;
+                    }
+                }
+            }
+
+            .agentContactInfoSkeleton {
+                width: 60%;
+                height: 10px;
+                border-radius: 6px;
+
+            }
+
+            .agentContactInfoSkeleton:nth-child(3) {
+                width: 40%;
+            }
+        }
+
+        .deleteButtonSkeleton {
+            width: 130px;
+            border-radius: 8px;
+            height: 30px;
+
+
+        }
+    }
+}
+
+
+@media only screen and (max-width: 1300px) {
+
+    .listingPageSkeletonWrapper {
+        gap: 50px;
+
+        & .detailsSkeletonWrapper {
+            padding: 0;
+
+        }
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .listingPageSkeletonWrapper {
+        flex-direction: column;
+
+        & .listingPageImageWrapper {
+            width: 100%;
+        }
+
+        & .imageSkeleton {
+            border-radius: 14px;
+            width: 100%;
+        }
+
+        & .detailsSkeletonWrapper {
+            flex-direction: row;
+            width: 100%;
+            padding: 0;
+            flex-wrap: wrap;
+
+            & .smallDetailsSkeleton {
+                flex-direction: row;
+                gap: 30px;
+                flex-wrap: wrap;
+                align-items: center;
+                text-align: center;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .listingPageSkeletonWrapper {
+        & .detailsSkeletonWrapper {
+            & .smallDetailsSkeleton {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    }
+}

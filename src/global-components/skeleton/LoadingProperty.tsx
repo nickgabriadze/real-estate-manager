@@ -1,6 +1,5 @@
 import propertyLoadingStyles from '../styles/skeleton/loading.property.module.css'
 
-
 export function LoadingProperty(){
 
 
