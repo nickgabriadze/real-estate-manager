@@ -15,8 +15,9 @@
         width: 100%;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: left;
         gap: 20px;
+
 
     }
 
@@ -43,5 +44,14 @@
 
 .arrowDisabled {
     & img {
-        filter: invert(92%) sepia(3%) saturate(143%) hue-rotate(201deg) brightness(106%) contrast(93%);    }
+        filter: invert(92%) sepia(3%) saturate(143%) hue-rotate(201deg) brightness(106%) contrast(93%);
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    & .othersWrapper {
+        & .list {
+            justify-content: center;
+        }
+    }
 }

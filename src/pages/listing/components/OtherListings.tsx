@@ -16,7 +16,7 @@ export default function OtherListings({region_id}: { region_id: number }) {
     const similarListings = listings.filter(l => l.city.region_id === region_id && l.id !== Number(id))
     const dispatch = useAppDispatch()
     const windowWidth = useWindowWidth()
-    const incrementor = (Math.floor((windowWidth * 0.8) / 350))
+    const incrementor = Math.max(1, (Math.floor((windowWidth * 0.8) / 350)))
 
     const [carouselIndex, setCarouselIndex] = useState<[number, number]>([0, incrementor])
     const {data, isLoading} = useQuery({
@@ -59,9 +59,9 @@ export default function OtherListings({region_id}: { region_id: number }) {
                     home={eachListing}/>)}
             </div>
             <button
-                className={`${similarListingsStyle['rightArrow']} ${carouselIndex[1] === similarListings.length && similarListingsStyle['arrowDisabled']}`}
+                className={`${similarListingsStyle['rightArrow']} ${carouselIndex[1] >= similarListings.length && similarListingsStyle['arrowDisabled']}`}
                 onClick={() => {
-                    if (carouselIndex[1] === similarListings.length) return;
+                    if (carouselIndex[1] >= similarListings.length) return;
                     else {
                         if (carouselIndex[1] + incrementor <= similarListings.length) {
                             setCarouselIndex((prev) => [prev[1], prev[1] + incrementor])
