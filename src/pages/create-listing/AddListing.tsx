@@ -76,7 +76,7 @@ export default function AddListing() {
                 <p className={addAgentStyles['agentError']}>ლისტინგის დამატება ვერ მოხერხდა, ცადეთ მოგვიანებით</p>}
         </div>}
         <div className={addListingStyles['formButtons']}>
-            <Link to={'/real-estate-manager/'}
+            <Link to={'/'}
                     onClick={() => {
                         dispatch(resetListingInfo({}))
                         sessionStorage.clear()

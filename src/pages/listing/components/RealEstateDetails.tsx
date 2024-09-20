@@ -55,7 +55,7 @@ export default function RealEstateDetails({property}: { property: Listing }) {
             </div>
             <div className={propertyStyles['agentSection']}>
                 <AgentCard agent={property.agent}/>
-                <Link className={propertyStyles['deleteListing']} to={`/real-estate-manager/listings/${property.id}/delete`}>ლისტინგის წაშლა</Link>
+                <Link className={propertyStyles['deleteListing']} to={`/listings/${property.id}/delete`}>ლისტინგის წაშლა</Link>
             </div>
         </div>
 

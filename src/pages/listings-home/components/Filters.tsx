@@ -54,9 +54,9 @@ export default function Filters() {
             </div>
 
             <div className={filterStyles['create']}>
-                <Link to={'/real-estate-manager/add-listing'}><img src={AddIconWhiteSVG} width={12} alt={'Add icon'}/><p>ლისტინგის
+                <Link to={'/add-listing'}><img src={AddIconWhiteSVG} width={12} alt={'Add icon'}/><p>ლისტინგის
                     დამატება</p></Link>
-                <Link to={'/real-estate-manager/add-agent'}><img src={AddIconOrangeSVG} width={12} alt={'Add icon'}/><p>აგენტის
+                <Link to={'/add-agent'}><img src={AddIconOrangeSVG} width={12} alt={'Add icon'}/><p>აგენტის
                     დამატება</p></Link>
 
             </div>
