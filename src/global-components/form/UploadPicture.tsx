@@ -4,11 +4,10 @@ import {useEffect, useState} from "react";
 import DeleteImageSVG from '/src-icons/delete-bin.svg'
 import {ActionCreatorWithPayload} from "@reduxjs/toolkit";
 import {useAppDispatch} from "../../hooks/redux.ts";
-import {Validation} from "../../types/validationOptions.ts";
 
 export default function UploadPicture({label, value, setValue, required}: {
     label: string,
-    value: [File, Validation],
+    value: any,
     setValue: ActionCreatorWithPayload<any>,
     required: boolean
 }) {
