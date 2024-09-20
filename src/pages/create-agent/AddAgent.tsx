@@ -96,7 +96,9 @@ export default function AddAgent() {
                        validator={"მხოლოდ რიცხვები"} required={true}/>
 
             </div>
-            <UploadPicture value={agentDetails.avatar} setValue={setAgentAvatar} label={'ატვირთეთ ფოტო'}
+            <UploadPicture
+                block={true}
+                value={agentDetails.avatar} setValue={setAgentAvatar} label={'ატვირთეთ ფოტო'}
                            required={true}/>
 
 
