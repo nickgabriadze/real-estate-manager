@@ -33,7 +33,7 @@ export default function LocationDetails() {
                     block={false}
                     name={'zip_code'}
                     setValue={setZipCode}
-                    validationType={"ONLYNUMBERS"}
+                    validationType={"ALLOWZERONUMBER"}
                     label={'საფოსტო ინდექსი'} required={true} validator={'მხოლოდ რიცხვები'}/>
             </div>
             <div className={addListingStyles['detailsLocationSelect']}>
