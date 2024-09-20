@@ -29,7 +29,7 @@ export default function Select({data, value, name, setValue, loading, label, for
     }, [loading, sessionStorageValue]);
 
     return <div className={selectStyles['selectWrapper']}>
-        <h5>{label}</h5>
+        {<h5>{label}</h5>}
 
         <div className={selectStyles['dropDownWrapper']} ref={selectClickOutside}
              onClick={() => {
@@ -39,7 +39,7 @@ export default function Select({data, value, name, setValue, loading, label, for
              }}>
             <div className={`${selectStyles['dropDownMainOption']} ${value[1] === 'invalidForm' && commonStyles['invalid']} ${dropDownOpen && selectStyles['dropDownOpen']}`}
 
-            >{loading ? 'აირჩიე' : value[0] === -1 ? 'აირჩიე' : selectedValue}
+            >{forAgent && value[0] === -1 ? 'აგენტები' : loading ? 'აირჩიე' : value[0] === -1 ? 'აირჩიე' : selectedValue}
             </div>
             {dropDownOpen && <div className={selectStyles['dropDownOptions']}
                                   style={data.length > 5 ? {height: '200px'} : {height: 'fit-content'}}
