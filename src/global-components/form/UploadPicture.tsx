@@ -77,7 +77,7 @@ export default function UploadPicture({label, value, setValue, required}: {
         </label>
         {value[1] === 'none' &&
             <p style={{color: 'var(--accent-color)'}}>ფაილის ზომა არ უნდა აღემატებოდეს 1 მეგაბაიტს!</p>}
-        {invalidFileType && value[1] !== 'none' &&
+        {invalidFileType && value[1] !== 'none' && value[1] !== 'invalidForm' &&
                 <p style={{color: 'var(--accent-color)'}}>ფაილის ფორმატი არასწორია. ატვირთეთ მხოლოდ JPEG/JPG ან PNG!</p>}
     </div>
 }
