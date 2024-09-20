@@ -36,15 +36,19 @@ export default function UploadPicture({label,block, value, setValue, required}: 
 
     useEffect(() => {
         if (!isNaN(fileSize)) {
+            if (handleFileType(value[0].type)) {
+                if (fileSize > 1) {
+                    dispatch(setValue(['', 'none']))
+                } else {
+                    setInvalidFileType(false)
+                    !block && getBase64Image(value[0])
+                    dispatch(setValue([value[0], 'valid']))
+                }
+            }else{
+                setInvalidFileType(true)
+                dispatch(setValue(['', false]))
 
-            if (fileSize > 1) {
-                dispatch(setValue(['', 'none']))
-            } else {
-                setInvalidFileType(false)
-                !block && getBase64Image(value[0])
-                dispatch(setValue([value[0], 'valid']))
             }
-
         }
 
     }, [value[0]]);
@@ -68,11 +72,7 @@ export default function UploadPicture({label,block, value, setValue, required}: 
                                             accept={"image/png, image/jpg, image/jpeg"}
                                             onChange={(e) => {
                                                 if (e.target.files !== null) {
-                                                    if (handleFileType(e.target.files[0].type)) {
                                                         dispatch(setValue([(e.target.files[0]), 'valid']))
-                                                    } else {
-                                                        setInvalidFileType(true)
-                                                    }
                                                 }
                                             }}/>}
             {value[1] === 'valid' && value[0] ? <div className={uploadStyles['uploadedImage']}>
