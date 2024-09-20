@@ -5,7 +5,7 @@ import filterStyles from "../styles/filters.module.css";
 import UpArrowSVG from "/src-icons/up-arrow.svg";
 import DownArrowSVG from "/src-icons/down-arrow.svg";
 import useClickOutside from "../../../../hooks/useClickOutside.ts";
-import {validate} from "../../../../global-components/form/validate.ts";
+import {validate} from "../../../../global-components/form/functions/validate.ts";
 import {useNavigate} from "react-router-dom";
 import {useAppDispatch} from "../../../../hooks/redux.ts";
 import {ActionCreatorWithPayload} from "@reduxjs/toolkit";

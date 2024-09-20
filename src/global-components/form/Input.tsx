@@ -5,7 +5,7 @@ import CheckmarkErrorSVG from '/src-icons/checkmark-error.svg'
 import CheckmarkValidSVG from '/src-icons/checkmark-valid.svg'
 import {Validation, ValidationOptions} from "../../types/validationOptions.ts";
 import {useEffect, useState} from "react";
-import {validate} from "./validate.ts";
+import {validate} from "./functions/validate.ts";
 import {useAppDispatch} from "../../hooks/redux.ts";
 import {ActionCreatorWithPayload} from "@reduxjs/toolkit";
 

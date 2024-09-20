@@ -4,6 +4,8 @@ import {useEffect, useState} from "react";
 import DeleteImageSVG from '/src-icons/delete-bin.svg'
 import {ActionCreatorWithPayload} from "@reduxjs/toolkit";
 import {useAppDispatch} from "../../hooks/redux.ts";
+import getBase64Image from "./functions/getBase64Image.ts";
+import base64ToFile from "./functions/base64ToFile.ts";
 
 export default function UploadPicture({label, value, setValue, required}: {
     label: string,
@@ -13,6 +15,18 @@ export default function UploadPicture({label, value, setValue, required}: {
 }) {
     const dispatch = useAppDispatch()
     const fileSize = Number(value[0]?.size) / (1024 ** 2)
+    const sessionStorageValue = sessionStorage.getItem('image');
+
+    useEffect(() => {
+        if(sessionStorageValue){
+            const asFile = base64ToFile(String(sessionStorageValue))
+            const validFileType = handleFileType(asFile.type)
+            if(validFileType){
+                dispatch(setValue([asFile, 'valid']))
+            }
+        }
+    }, [sessionStorageValue])
+
 
     const handleFileType = (fileType: string) => {
         return fileType === 'image/jpeg' || fileType === 'image/png' || fileType === 'image/jpg'
@@ -26,6 +40,7 @@ export default function UploadPicture({label, value, setValue, required}: {
                 dispatch(setValue(['', 'none']))
             } else {
                 setInvalidFileType(false)
+                getBase64Image(value[0])
                 dispatch(setValue([value[0], 'valid']))
             }
 
@@ -51,9 +66,9 @@ export default function UploadPicture({label, value, setValue, required}: {
                                             accept={"image/png, image/jpg, image/jpeg"}
                                             onChange={(e) => {
                                                 if (e.target.files !== null) {
-                                                    if(handleFileType(e.target.files[0].type)) {
+                                                    if (handleFileType(e.target.files[0].type)) {
                                                         dispatch(setValue([(e.target.files[0]), 'valid']))
-                                                    }else{
+                                                    } else {
                                                         setInvalidFileType(true)
                                                     }
                                                 }
@@ -77,6 +92,6 @@ export default function UploadPicture({label, value, setValue, required}: {
         {value[1] === 'none' &&
             <p style={{color: 'var(--accent-color)'}}>ფაილის ზომა არ უნდა აღემატებოდეს 1 მეგაბაიტს!</p>}
         {invalidFileType && value[1] !== 'none' && value[1] !== 'invalidForm' &&
-                <p style={{color: 'var(--accent-color)'}}>ფაილის ფორმატი არასწორია. ატვირთეთ მხოლოდ JPEG/JPG ან PNG!</p>}
+            <p style={{color: 'var(--accent-color)'}}>ფაილის ფორმატი არასწორია. ატვირთეთ მხოლოდ JPEG/JPG ან PNG!</p>}
     </div>
 }
