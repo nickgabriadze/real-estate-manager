@@ -23,7 +23,7 @@ jobs:
         uses: bahmutov/npm-install@v1
 
       - name: Build project
-        run: vite build
+        run: npm run build
         env:
           VITE_API_ACCESS_TOKEN: ${{ secrets.VITE_API_ACCESS_TOKEN }}
 
