@@ -36,12 +36,12 @@ export default function OtherListings({region_id}: { region_id: number }) {
         if (incDec === 1) {
             if (carouselIndex[1] + 1 < similarListings.length) {
                 if (carouselIndex[0] + 1 >= similarListings.length) {
-                    setCarouselIndex(prev => [0, prev[1] + 1])
+                    setCarouselIndex([0, incrementor - 1])
                 } else {
                     setCarouselIndex([carouselIndex[0] + 1, carouselIndex[1] + 1])
                 }
             } else {
-                setCarouselIndex(prev => [prev[0] + 1, 0])
+                setCarouselIndex([incrementor - 1, 0])
             }
 
 
@@ -49,17 +49,19 @@ export default function OtherListings({region_id}: { region_id: number }) {
         if (incDec === 0) {
             if (carouselIndex[0] - 1 >= 0) {
                 if (carouselIndex[1] - 1 < 0) {
-                    setCarouselIndex(prev => [prev[0] - 1, similarListings.length-1])
+                    setCarouselIndex([similarListings.length - incrementor, similarListings.length - 1])
                 } else {
                     setCarouselIndex([carouselIndex[0] - 1, carouselIndex[1] - 1])
                 }
             } else {
-                setCarouselIndex(prev => [similarListings.length - 1, prev[1] - 1])
+                setCarouselIndex([similarListings.length - 1, similarListings.length - incrementor])
             }
 
 
         }
     }
+
+    console.log(carouselIndex, similarListings.length)
 
     const handleCarousel = () => {
         const [startIndex, endIndex] = carouselIndex
