@@ -5,8 +5,10 @@ export function validate(validation: ValidationOptions, value: string) {
         return 'none';
     }
     switch (validation) {
+        case 'ALLOWZERONUMBER':
+            return value.match('^\\d+$') ? 'valid' : false
         case 'RANGENUMBER':
-            return  /^\d*$/.test(value) ? 'valid' : false;
+            return /^\d*$/.test(value) ? 'valid' : false;
         case "MIN2CHARACTERS":
             return value.trim().length > 1 ? 'valid' : false;
         case "REDBERRYEMAIL":
@@ -23,7 +25,7 @@ export function validate(validation: ValidationOptions, value: string) {
             }
             return false
         case "ONLYNUMBERS":
-            return value.match('^\\d+$') ? 'valid' : false
+            return value.match('^[1-9]\\d*$') ? 'valid' : false
         default:
             return false
     }
