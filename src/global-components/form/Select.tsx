@@ -45,7 +45,7 @@ export default function Select({data, value, name, setValue, loading, label, for
                                   style={data.length > 5 ? {height: '200px'} : {height: 'fit-content'}}
             >
                 {forAgent && <Link
-                    to={'/add-agent'}
+                    to={'/real-estate-manager/add-agent'}
                     className={`${selectStyles['dropDownOption']} ${selectStyles['addAgentOption']}`}>
                     <img src={AddCircleSVG} width={24} alt={'Add icon'}/>
                     <p>დაამატე აგენტი</p></Link>}

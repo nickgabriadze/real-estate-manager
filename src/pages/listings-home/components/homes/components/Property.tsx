@@ -8,7 +8,7 @@ import {Link} from "react-router-dom";
 
 export default function Property({home}: { home: Listing }) {
 
-    return <Link to={`/listings/${home.id}`} className={homeListingStyles['homeListingWrapper']}>
+    return <Link to={`/real-estate-manager/listings/${home.id}`} className={homeListingStyles['homeListingWrapper']}>
         <div className={homeListingStyles['homePicture']}>
             <p className={'isRental'}>{home.is_rental === 1 ? "ქირავდება" : "იყიდება"}</p>
             <img src={home.image} width={384} height={300} alt={"Home interior picture"}/>
