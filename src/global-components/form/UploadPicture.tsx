@@ -7,8 +7,9 @@ import {useAppDispatch} from "../../hooks/redux.ts";
 import getBase64Image from "./functions/getBase64Image.ts";
 import base64ToFile from "./functions/base64ToFile.ts";
 
-export default function UploadPicture({label, value, setValue, required}: {
+export default function UploadPicture({label,block, value, setValue, required}: {
     label: string,
+    block: boolean,
     value: any,
     setValue: ActionCreatorWithPayload<any>,
     required: boolean
@@ -18,7 +19,7 @@ export default function UploadPicture({label, value, setValue, required}: {
     const sessionStorageValue = sessionStorage.getItem('image');
 
     useEffect(() => {
-        if(sessionStorageValue){
+        if(sessionStorageValue && !block){
             const asFile = base64ToFile(String(sessionStorageValue))
             const validFileType = handleFileType(asFile.type)
             if(validFileType){
@@ -40,7 +41,7 @@ export default function UploadPicture({label, value, setValue, required}: {
                 dispatch(setValue(['', 'none']))
             } else {
                 setInvalidFileType(false)
-                getBase64Image(value[0])
+                !block && getBase64Image(value[0])
                 dispatch(setValue([value[0], 'valid']))
             }
 
@@ -51,6 +52,7 @@ export default function UploadPicture({label, value, setValue, required}: {
     const handleDeleteImage = () => {
         setTimeout(() => {
             dispatch(setValue(['', false]));
+            sessionStorage.removeItem('image')
         }, 100);
     }
 

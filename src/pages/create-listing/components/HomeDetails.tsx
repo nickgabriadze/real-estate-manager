@@ -44,6 +44,7 @@ export default function HomeDetails() {
             label={"აღწერა"} validator={"მინიმუმ 5 სიტყვა"} required={true}/>
         <UploadPicture
             value={image}
+            block={false}
             setValue={setListingImage}
             label={'ატვირთეთ ფოტო'} required={true} />
     </div>
