@@ -21,18 +21,19 @@
         display: flex;
         align-items: center;
         width: 100%;
-
         & button {
             position: absolute;
         }
 
         & .leftArrow {
             left: -8%;
+            z-index: 999;
         }
 
         & .rightArrow {
             right: -8%;
             rotate: 180deg;
+
         }
 
     }
