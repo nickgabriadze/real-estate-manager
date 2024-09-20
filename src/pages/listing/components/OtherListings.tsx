@@ -61,7 +61,6 @@ export default function OtherListings({region_id}: { region_id: number }) {
         }
     }
 
-    console.log(carouselIndex, similarListings.length)
 
     const handleCarousel = () => {
         const [startIndex, endIndex] = carouselIndex

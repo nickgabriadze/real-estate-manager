@@ -21,16 +21,16 @@ export default function App() {
 
         {(addingAgent || deletingListing) && <div className={'outline'}></div>}
         <Routes>
-            <Route path={'/'} element={<Listings />} />
+            <Route path={'/'} element={<Listings/>}/>
 
             <Route path={'/add-agent'} element={<AddAgent/>}/>
 
-            <Route path={'/listings/:id'} element={<ListingPage />}>
-                <Route path={'delete'} element={<DeleteListingModal />} />
+            <Route path={'/listings/:id'} element={<ListingPage/>}>
+                <Route path={'delete'} element={<DeleteListingModal/>}/>
             </Route>
             <Route path={'/add-listing'} element={<AddListing/>}/>
 
-            <Route path={'*'} element={<PageNotFound404 />} />
+            <Route path={'*'} element={<PageNotFound404/>}/>
         </Routes>
 
     </section>
