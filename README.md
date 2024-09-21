@@ -22,4 +22,3 @@ This project was developed as part of the enrollment process for the **Redberry 
 - **Axios**: For making HTTP requests to the backend API.
 - **Browser Router (React Router)**: For client-side routing, allowing seamless navigation between different pages of the application.
 - **Redux Toolkit**: For global state management, ensuring shared states like filters and listings are managed efficiently across the app.
-- **React-Slick / Swiper**: For implementing the carousel navigation of similar region properties, offering smooth transitions and a responsive UI.
