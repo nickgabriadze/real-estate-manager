@@ -73,7 +73,7 @@ export default function OtherListings({region_id}: { region_id: number }) {
     }
 
     return <div className={similarListingsStyle['othersWrapper']}>
-        {!isLoading && similarListings.length > 0 && <h3>ბინები მსგავს ლოკაციაზე</h3>}
+        {similarListings.length > 0 && <h3>ბინები მსგავს ლოკაციაზე</h3>}
 
         <div className={similarListingsStyle['propertiesWrapper']}>
             {similarListings.length > 0 && <button
@@ -82,9 +82,9 @@ export default function OtherListings({region_id}: { region_id: number }) {
             ><img src={LeftArrowSVG} width={30} alt={'Left arrow icon'}/></button>}
             <div className={similarListingsStyle['list']}
                  style={{gridTemplateColumns: `repeat(${incrementor}, minmax(${windowWidth * 0.8 / 350}px, 1fr))`}}>
-                {similarListings.length > 0  ? handleCarousel().map(eachListing => <Property
+                {handleCarousel().map(eachListing => <Property
                     key={eachListing.id}
-                    home={eachListing}/>) : !isLoading && listings.length === 0 && <h5 style={{color:'var(--accent-color)'}}>სამწუხაროდ, ბინები მსგავს ლოკაციაზე არ იძებნება</h5>}
+                    home={eachListing}/>)}
             </div>
             {similarListings.length > 0 && <button
                 className={`${similarListingsStyle['rightArrow']}  ${similarListings.length <= incrementor && similarListingsStyle['arrowDisabled']}`}
