@@ -3,6 +3,8 @@
 ## Overview
 The **Real Estate Manager** is a React application that allows users to manage real estate listings. It provides functionality to add property listings, assign agents to listings, and filter listings based on various criteria such as regions, price range, area size, and the number of bedrooms. The application includes listing pages where users can view available properties and filter them according to their preferences. Additionally, users can browse through listings from similar regions using a carousel feature.
 
+This project was developed as part of the enrollment process for the **Redberry Bootcamp**, showcasing skills in building full-featured React applications with state management, API integration, and advanced UI components.
+
 ## Features
 - **Add Property Listings**: Create new property listings with details such as location, price, area, number of bedrooms, and assigned agent.
 - **Add Agents**: Add real estate agents who can be assigned to property listings.
