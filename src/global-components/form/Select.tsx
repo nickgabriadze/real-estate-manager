@@ -33,7 +33,7 @@ export default function Select({data, value, name, setValue, loading, label, for
 
         <div className={selectStyles['dropDownWrapper']} ref={selectClickOutside}
              onClick={() => {
-                 if (forCity !== -1) {
+                 if (forCity !== -1 && !loading) {
                      setDropDownOpen(prev => !prev)
                  }
              }}>
